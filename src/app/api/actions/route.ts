@@ -349,6 +349,7 @@ import {
       // (async () => {
         try {
           console.log("Creating NFT...");
+          umi.use(signerIdentity(signer));
           const nftSignature = await nftBuilder.sendAndConfirm(umi);
           console.log("NFT created successfully! Signature:", nftSignature.signature);
     
