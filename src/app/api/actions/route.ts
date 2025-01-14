@@ -413,13 +413,14 @@ import {
         // Send the transaction
         const tx = new Transaction().add(transferInstruction);
   
-        // Fetch the latest blockhash
-        const { blockhash } = await connection.getLatestBlockhash({
-          commitment: "finalized", // Faster than "finalized" with sufficient guarantees.
-        });
   
-        tx.recentBlockhash = blockhash;
         tx.feePayer = payerKeypair.publicKey;
+              // Fetch the latest blockhash
+              const { blockhash } = await connection.getLatestBlockhash({
+                commitment: "finalized", // Faster than "finalized" with sufficient guarantees.
+              });
+        
+              tx.recentBlockhash = blockhash;
   
         await connection.sendTransaction(tx, [payerKeypair]);
   
