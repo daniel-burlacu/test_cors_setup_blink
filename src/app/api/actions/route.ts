@@ -13,6 +13,7 @@ import {
   Keypair,
   LAMPORTS_PER_SOL,
   PublicKey,
+  sendAndConfirmTransaction,
   SystemProgram,
   Transaction,
 } from "@solana/web3.js";
@@ -422,7 +423,7 @@ import {
         
               tx.recentBlockhash = blockhash;
   
-        await connection.sendTransaction(tx, [payerKeypair]);
+              await sendAndConfirmTransaction(connection, tx, [payerKeypair]);
   
         return tx;
         //await connection.sendTransaction(tx, [payerKeypair]);
