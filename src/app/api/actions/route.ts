@@ -83,24 +83,6 @@ import {
                 label: "Send 0.05 Sol",
                 href: requestUrl.origin + "/api/actions?action=send0.05",
               },
-              {
-                type: "transaction",
-                label: "Send 1 Sol",
-                href: requestUrl.origin + "/api/actions?action=send1",
-              },
-              {
-                type: "transaction",
-                label: "Send Sol",
-                href:
-                  requestUrl.origin + "/api/actions?action=send&amount=0.0001",
-                parameters: [
-                  {
-                    name: "amount",
-                    label: "Enter the amount of SOL to send",
-                    required: true,
-                  },
-                ],
-              },
             ],
           },
         };
