@@ -150,13 +150,15 @@ import {
   tx.recentBlockhash = blockhash;
 
    // Handle action types
-   if (action === "send0.05") {
-    const lamports = 50000000;
+   // Handle action types
+  if (action === "send0.05" || action === "send1" || action === "send") {
+    const lamports =
       action === "send0.05"
         ? 50000000
         : action === "send1"
         ? 1000000000
         : Math.round(parseFloat(param || "0") * LAMPORTS_PER_SOL);
+
 
     const transferInstruction = SystemProgram.transfer({
       fromPubkey: userPubkey,
