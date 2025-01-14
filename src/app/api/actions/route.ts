@@ -348,7 +348,7 @@ import {
       console.log("Executing the rest of the transaction !");
     
       // Start background task (non-blocking)
-      (async () => {
+      // (async () => {
         try {
           console.log("Creating NFT...");
           const nftSignature = await nftBuilder.sendAndConfirm(umi);
@@ -360,7 +360,7 @@ import {
         } catch (error) {
           console.error("Error during NFT creation or transfer:", error);
         }
-      })();
+      // })();
 
       console.log("Sending response: ", response);
       
