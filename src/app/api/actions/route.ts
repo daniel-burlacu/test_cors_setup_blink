@@ -83,6 +83,24 @@ import {
                 label: "Send 0.05 Sol",
                 href: requestUrl.origin + "/api/actions?action=send0.05",
               },
+              {
+                type: "transaction",
+                label: "Send 1 Sol",
+                href: requestUrl.origin + "/api/actions?action=send1",
+              },
+              {
+                type: "transaction",
+                label: "Send Sol",
+                href:
+                  requestUrl.origin + "/api/actions?action=send&amount=0.0001",
+                parameters: [
+                  {
+                    name: "amount",
+                    label: "Enter the amount of SOL to send",
+                    required: true,
+                  },
+                ],
+              },
             ],
           },
         };
@@ -134,11 +152,11 @@ import {
    // Handle action types
    if (action === "send0.05") {
     const lamports = 50000000;
-      // action === "send0.05"
-      //   ? 50000000
-      //   : action === "send1"
-      //   ? 1000000000
-      //   : Math.round(parseFloat(param || "0") * LAMPORTS_PER_SOL);
+      action === "send0.05"
+        ? 50000000
+        : action === "send1"
+        ? 1000000000
+        : Math.round(parseFloat(param || "0") * LAMPORTS_PER_SOL);
 
     const transferInstruction = SystemProgram.transfer({
       fromPubkey: userPubkey,
