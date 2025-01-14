@@ -15,20 +15,31 @@ export function UiLayout({ children, links }: { children: ReactNode; links: { la
 
   return (
     <div className="h-full flex flex-col">
-      <div className="navbar bg-base-300 text-neutral-content flex-col md:flex-row space-y-2 md:space-y-0">
+      <div
+  className="navbar text-neutral-content flex-col md:flex-row space-y-2 md:space-y-0"
+  style={{
+    background: 'linear-gradient(90deg, #4ADEDE, #5B7DFF, #4A94FF)',
+  }}
+>
         <div className="flex-1">
           <Link className="btn btn-ghost normal-case text-xl" href="/">
-            <img className="h-4 md:h-6" alt="Logo" src="/logo.png" />
+            <img className="h-4 md:h-6" alt="Logo" src="https://imgs.search.brave.com/aRFuBpM7SXkZ63Fx2oAm6AwhgzzYGOuUHY4ip7hseFw/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/d29ybGR2ZWN0b3Js/b2dvLmNvbS9sb2dv/cy9zb2xhbmEuc3Zn" />
           </Link>
           <ul className="menu menu-horizontal px-1 space-x-2">
-            {links.map(({ label, path }) => (
-              <li key={path}>
-                <Link className={pathname.startsWith(path) ? 'active' : ''} href={path}>
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+  {links.map(({ label, path }) => (
+    <li key={path}>
+      <Link
+        className={`${
+          pathname.startsWith(path) ? 'active' : ''
+        } text-blue-900`}
+        href={path}
+      >
+        {label}
+      </Link>
+    </li>
+  ))}
+</ul>
+
         </div>
         <div className="flex-none space-x-2">
           <WalletButton />

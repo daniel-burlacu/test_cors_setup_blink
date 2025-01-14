@@ -241,8 +241,6 @@ import {
   })
   .toString("base64");
   
-  console.log("Serialized Transaction: ", serializedTx);
-  
   return Response.json(responseBody, { headers: ACTIONS_CORS_HEADERS });
       
     } else if (action === "mint") {
