@@ -358,7 +358,7 @@ import {
           type: 'post',
           message:'Thank you for your donation! You can now check your wallet.',
         } satisfies ActionPostResponse);
-      
+      console.log("Sending response: ", response);
        return Response.json(response, { headers: ACTIONS_CORS_HEADERS });
     }else {
       return Response.json("400", { headers: ACTIONS_CORS_HEADERS });
