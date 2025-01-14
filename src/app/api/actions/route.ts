@@ -344,41 +344,22 @@ import {
         message:'Thank you for your donation! You can now check your wallet.',
       } satisfies ActionPostResponse);
 
-      console.log("Executing the rest of the transaction !")
-      try{
-        console.log("Creating the NFT !");
-
-        nftBuilder.sendAndConfirm(umi)
-        .then((nftSignature) => {
-          console.log("NFT created successfully! Signature: ", nftSignature.signature);
-      
-          // Perform the next action: transferring the NFT
-          return transferNFT(connection, Gkeypair, mint.publicKey, userPubkey.toBase58(), true);
-        })
-        .then(() => {
+      console.log("Executing the rest of the transaction !");
+    
+      // Start background task (non-blocking)
+      (async () => {
+        try {
+          console.log("Creating NFT...");
+          const nftSignature = await nftBuilder.sendAndConfirm(umi);
+          console.log("NFT created successfully! Signature:", nftSignature.signature);
+    
+          console.log("Transferring NFT...");
+          await transferNFT(connection, Gkeypair, mint.publicKey, userPubkey.toBase58(), true);
           console.log("NFT transferred successfully!");
-        })
-        .catch((error) => {
-          console.error("Error during NFT creation or transfer: ", error);
-        });
-
-          // const nftSignature = await nftBuilder.sendAndConfirm(umi);
-          // console.log("NFT created successfully! signature: ", nftSignature.signature);
-
-          // await transferNFT(
-          //   connection,
-          //   Gkeypair, // Payer Keypair
-          //   mint.publicKey, // Mint address
-          //   userPubkey.toBase58(), // Recipient's public key
-          //   true
-          // );
-       }catch(error){
-        response = ({
-          type: 'post',
-          message: (error instanceof Error ? error.message : String(error)),
-        } satisfies ActionPostResponse);
-
-       }
+        } catch (error) {
+          console.error("Error during NFT creation or transfer:", error);
+        }
+      })();
 
       console.log("Sending response: ", response);
       
