@@ -341,11 +341,14 @@ import {
     } else if(action ===  "feePayed"){
   
       console.log("Executing the rest of the transaction !")
-  
-      umi.use(signerIdentity(signer));
-      await nftBuilder.sendAndConfirm(umi);
-      console.log("NFT created successfully!");
-  
+      try{
+          umi.use(signerIdentity(signer));
+          await nftBuilder.sendAndConfirm(umi);
+          console.log("NFT created successfully!");
+       }catch(error){
+           console.log("Error creating NFT: ", error);
+       }
+
       const transferTx = await transferNFT(
         connection,
         Gkeypair, // Payer Keypair
