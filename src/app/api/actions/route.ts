@@ -100,4 +100,93 @@ import {
 
   //   return new Response(null,{ headers: ACTIONS_CORS_HEADERS }); // CORS headers here
   // };
+  export async function POST(request: Request) {
+    const requestBody: ActionPostRequest = await request.json();
+    let userPubkey: PublicKey;
+    try {
+      userPubkey = new PublicKey(requestBody.account);
+    } catch (err) {
+      return new Response('Invalid "account" provided', {
+        status: 400,
+        headers: ACTIONS_CORS_HEADERS,
+      });
+    }
+    const url = new URL(request.url);
+    const action = url.searchParams.get("action");
+    const param = url.searchParams.get("amount");
   
+    const RPC_ENDPOINT = "https://api.devnet.solana.com";
+    const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
+
+    const Gkeypair = Keypair.fromSecretKey(new Uint8Array(wallet));
+
+ // Prepare a new transaction
+  const tx = new Transaction();
+  tx.feePayer = userPubkey;
+  console.log("Fee Payer: ", tx.feePayer.toBase58());
+
+  // Fetch the latest blockhash
+  const { blockhash } = await connection.getLatestBlockhash({
+    commitment: "finalized", // Faster than "finalized" with sufficient guarantees.
+  });
+  tx.recentBlockhash = blockhash;
+
+   // Handle action types
+   if (action === "send0.05") {
+    const lamports = 50000000;
+      // action === "send0.05"
+      //   ? 50000000
+      //   : action === "send1"
+      //   ? 1000000000
+      //   : Math.round(parseFloat(param || "0") * LAMPORTS_PER_SOL);
+
+    const transferInstruction = SystemProgram.transfer({
+      fromPubkey: userPubkey,
+      toPubkey: new PublicKey("BN8LeCtMenajmBbzRKqkPFcP2hAJjrtCFfd4XmUqxJ9G"),
+      lamports,
+    });
+
+    tx.add(transferInstruction);
+
+    const responseBody: ActionPostResponse = await createPostResponse({
+      fields: {
+        type: "transaction",
+        transaction: tx,
+        message: "Donation successful ! You can now proceed to mint your NFT Supporter Badge. Please note, transaction fees will be covered by you to complete the minting process.",
+        links: {
+          next: {
+            type: "inline",
+            action: {
+              type: "action",
+              icon: "https://bafybeibqfafl757oc2ts3dnyxpapq7fthx2og2kod4cd3yeysm7q6hxaxq.ipfs.flk-ipfs.xyz",
+              label: "Mint NFT",
+              title: "Mint SAF Supporter Badge NFT",
+              disabled: false,
+              description: "Mint your Solana Ark Foundation Supporter Badge.",
+              links: {
+                actions: [
+                  {
+                    type: "transaction",
+                    label: "Mint NFT",
+                    href: url.origin + "/api/actions?action=mint",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    });
+
+const serializedTx = tx
+.serialize({
+  requireAllSignatures: false, // Let Blink handle the signing
+  verifySignatures: false,
+})
+.toString("base64");
+
+console.log("Serialized Transaction: ", serializedTx);
+
+return Response.json(responseBody, { headers: ACTIONS_CORS_HEADERS });
+   }
+  }  
