@@ -1,9 +1,3 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/account/[address]/page": "app/account/[address]/page.js",
-  "/account/page": "app/account/page.js",
-  "/clusters/page": "app/clusters/page.js",
-  "/page": "app/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/api/actions/route": "app/api/actions/route.js"
 }

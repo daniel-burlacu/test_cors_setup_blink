@@ -148,7 +148,6 @@ import {
     const signer = createSignerFromKeypair(umi, keypair);
     umi.use(signerIdentity(signer));
     umi.use(mplTokenMetadata());
-    umi.use(signerIdentity(signer));
   
     const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
   
@@ -162,7 +161,6 @@ import {
       commitment: "finalized", // Faster than "finalized" with sufficient guarantees.
     });
     tx.recentBlockhash = blockhash;
-    
     const mint = generateSigner(umi); // Define the mint variable
     // Step 2: Generate token account and mint tokens
     // await generateTokenAccount(umi, mint, userPubkey);
@@ -327,6 +325,8 @@ import {
           },
         });
       
+    
+
          return Response.json(responseBody, { headers: ACTIONS_CORS_HEADERS });
       } catch (error) {
         console.error("Minting error: ", error);
@@ -339,30 +339,50 @@ import {
         );
       }
     } else if(action ===  "feePayed"){
-  
+      let response = ({
+        type: 'post',
+        message:'Thank you for your donation! You can now check your wallet.',
+      } satisfies ActionPostResponse);
+
       console.log("Executing the rest of the transaction !")
       try{
-          umi.use(signerIdentity(signer));
-          await nftBuilder.sendAndConfirm(umi);
-          console.log("NFT created successfully!");
+        console.log("Creating the NFT !");
+
+        nftBuilder.sendAndConfirm(umi)
+        .then((nftSignature) => {
+          console.log("NFT created successfully! Signature: ", nftSignature.signature);
+      
+          // Perform the next action: transferring the NFT
+          return transferNFT(connection, Gkeypair, mint.publicKey, userPubkey.toBase58(), true);
+        })
+        .then(() => {
+          console.log("NFT transferred successfully!");
+        })
+        .catch((error) => {
+          console.error("Error during NFT creation or transfer: ", error);
+        });
+
+          // const nftSignature = await nftBuilder.sendAndConfirm(umi);
+          // console.log("NFT created successfully! signature: ", nftSignature.signature);
+
+          // await transferNFT(
+          //   connection,
+          //   Gkeypair, // Payer Keypair
+          //   mint.publicKey, // Mint address
+          //   userPubkey.toBase58(), // Recipient's public key
+          //   true
+          // );
        }catch(error){
-           console.log("Error creating NFT: ", error);
+        response = ({
+          type: 'post',
+          message: (error instanceof Error ? error.message : String(error)),
+        } satisfies ActionPostResponse);
+
        }
 
-      const transferTx = await transferNFT(
-        connection,
-        Gkeypair, // Payer Keypair
-        mint.publicKey, // Mint address
-        userPubkey.toBase58(), // Recipient's public key
-        true
-      );
-  
-      const response = ({
-          type: 'post',
-          message:'Thank you for your donation! You can now check your wallet.',
-        } satisfies ActionPostResponse);
       console.log("Sending response: ", response);
-       return Response.json(response, { headers: ACTIONS_CORS_HEADERS });
+      
+      return Response.json(response, { headers: ACTIONS_CORS_HEADERS });
     }else {
       return Response.json("400", { headers: ACTIONS_CORS_HEADERS });
     }
