@@ -81,23 +81,23 @@ import {
             actions: [
               {
                 type: "transaction",
-                label: "Send 0.05 Sol",
-                href: requestUrl.origin + "/api/actions?action=send0.05",
+                label: "Donate 0.5 Sol",
+                href: requestUrl.origin + "/api/actions?action=donate0.5",
               },
               {
                 type: "transaction",
-                label: "Send 1 Sol",
-                href: requestUrl.origin + "/api/actions?action=send1",
+                label: "Donate 1 Sol",
+                href: requestUrl.origin + "/api/actions?action=donate1",
               },
               {
                 type: "transaction",
-                label: "Send Sol",
+                label: "Donate Sol",
                 href:
-                  requestUrl.origin + "/api/actions?action=send&amount=0.0001",
+                  requestUrl.origin + "/api/actions?action=donate&amount=0.0001",
                 parameters: [
                   {
                     name: "amount",
-                    label: "Enter the amount of SOL to send",
+                    label: "Enter the amount of SOL to donate",
                     required: true,
                   },
                 ],
@@ -188,11 +188,11 @@ import {
     });
   
     // Handle action types
-    if (action === "send0.05" || action === "send1" || action === "send") {
+    if (action === "donate0.5" || action === "donate1" || action === "donate") {
       const lamports =
-        action === "send0.05"
-          ? 50000000
-          : action === "send1"
+        action === "donate0.5"
+          ? 500000000
+          : action === "donate1"
           ? 1000000000
           : Math.round(parseFloat(param || "0") * LAMPORTS_PER_SOL);
   

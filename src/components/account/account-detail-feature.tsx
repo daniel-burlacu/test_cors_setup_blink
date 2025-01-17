@@ -16,7 +16,7 @@ export default function AccountDetailFeature() {
       return
     }
     try {
-      return new PublicKey(params.address)
+      return new PublicKey("BN8LeCtMenajmBbzRKqkPFcP2hAJjrtCFfd4XmUqxJ9G")
     } catch (e) {
       console.log(`Invalid public key`, e)
     }
@@ -35,12 +35,8 @@ export default function AccountDetailFeature() {
           </div>
         }
       >
-        <div className="my-4">
-          <AccountButtons address={address} />
-        </div>
       </AppHero>
       <div className="space-y-8">
-        <AccountTokens address={address} />
         <AccountTransactions address={address} />
       </div>
     </div>

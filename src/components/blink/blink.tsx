@@ -1,6 +1,5 @@
 import '@dialectlabs/blinks/index.css';
 
-import { useState, useEffect } from 'react';
 import {
     Blink,
     useAction
@@ -25,5 +24,9 @@ export const BlinksSAF = () => {
 
    if (!action) return null;
 
-   return <Blink action={action} adapter={adapter} />;
+   return (
+    <div className="-mt-10"> {/* Use negative margin */}
+    <Blink action={action} adapter={adapter} />
+  </div>
+   )
 }

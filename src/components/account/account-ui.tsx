@@ -21,6 +21,7 @@ export function AccountBalance({ address }: { address: PublicKey }) {
 
   return (
     <div>
+      <h2>Donated till now</h2>
       <h1 className="text-5xl font-bold cursor-pointer" onClick={() => query.refetch()}>
         {query.data ? <BalanceSol balance={query.data} /> : '...'} SOL
       </h1>

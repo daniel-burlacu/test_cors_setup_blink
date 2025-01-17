@@ -1,4 +1,7 @@
 {
   "/page": "app/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/donated/page": "app/donated/page.js",
+  "/account/[address]/page": "app/account/[address]/page.js",
+  "/roadmap/page": "app/roadmap/page.js",
+  "/clusters/page": "app/clusters/page.js"
 }

@@ -1,6 +1,7 @@
 import './globals.css'
 import {ClusterProvider} from '@/components/cluster/cluster-data-access'
 import {SolanaProvider} from '@/components/solana/solana-provider'
+// import { DonateProvider} from '@/components/donate/donate-provider'
 import {UiLayout} from '@/components/ui/ui-layout'
 import {ReactQueryProvider} from './react-query-provider'
 
@@ -12,6 +13,10 @@ export const metadata = {
 const links: { label: string; path: string }[] = [
   { label: 'Account', path: '/account' },
   { label: 'Clusters', path: '/clusters' },
+  { label: 'Donated', path: '/donated' }, // Add this
+  { label: 'Project', path: '/project' }, // Add this
+  { label: 'Road-Map', path: '/roadmap' }, // Add this
+  { label: 'About-Us', path: '/aboutus' }, // Add this
 ]
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
