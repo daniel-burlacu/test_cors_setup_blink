@@ -21,7 +21,7 @@ export function TabMenu({ links }: { links: { label: string; path: string }[] })
       <div className="flex items-center justify-between max-w-7xl mx-auto px-4 py-2">
         {/* Logo */}
         <Link className="btn btn-ghost normal-case text-xl flex items-center" href="/">
-          <img className="h-10" alt="Logo" src="/LogoNoBckg.png" />
+          <img className="h-10" alt="Logo" src="/SAFLogo.png" />
         </Link>
 
         {/* WalletButton and ClusterUiSelect for smaller screens */}

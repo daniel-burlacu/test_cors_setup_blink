@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/project/page": [
+    "/aboutus/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/project/page.js"
+      "static/chunks/app/aboutus/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -15,22 +15,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
-    ],
-    "/donate/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/donate/page.css",
-      "static/chunks/app/donate/page.js"
-    ],
-    "/roadmap/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/roadmap/page.js"
-    ],
-    "/aboutus/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/aboutus/page.js"
     ],
     "/home/page": [
       "static/chunks/webpack.js",
