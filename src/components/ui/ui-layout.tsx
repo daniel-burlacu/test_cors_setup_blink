@@ -8,48 +8,18 @@ import toast, {Toaster} from 'react-hot-toast'
 import {AccountChecker} from '../account/account-ui'
 import {ClusterChecker, ClusterUiSelect, ExplorerLink} from '../cluster/cluster-ui'
 import {WalletButton} from '../solana/solana-provider'
-import logoSAF from '../../../public/LogoNoBckg.png'
+import logoSAF from '../../../public/SAFLogo.png'
+import { TabMenu } from '@/components/ui/tab-menu';
 
 export function UiLayout({ children, links }: { children: ReactNode; links: { label: string; path: string }[] }) {
-  const pathname = usePathname()
-
   return (
     <div className="h-full flex flex-col">
-      <div
-  className="navbar text-neutral-content flex-col md:flex-row space-y-2 md:space-y-0"
-  style={{
-    background: 'linear-gradient(90deg, #4ADEDE, #5B7DFF, #4A94FF)',
-  }}
->
-        <div className="flex-1">
-          <Link className="btn btn-ghost normal-case text-xl" href="/">
-            <img className="h-4 md:h-6" alt="Logo" src={logoSAF.src} />
-          </Link>
-          <ul className="menu menu-horizontal px-1 space-x-2">
-  {links.map(({ label, path }) => (
-    <li key={path}>
-      <Link
-        className={`${
-          pathname.startsWith(path) ? 'active' : ''
-        } text-blue-900`}
-        href={path}
-      >
-        {label}
-      </Link>
-    </li>
-  ))}
-</ul>
+      {/* Fixed TabMenu */}
+      <TabMenu links={links} />
 
-        </div>
-        <div className="flex-none space-x-2">
-          <WalletButton />
-          <ClusterUiSelect />
-        </div>
-      </div>
-      <ClusterChecker>
-        <AccountChecker />
-      </ClusterChecker>
-      <div className="flex-grow mx-4 lg:mx-auto">
+      {/* Content Below Fixed Menu */}
+      <div className="mt-20 flex-grow mx-4 lg:mx-auto">
+        {/* Add margin-top to prevent overlap with the fixed menu */}
         <Suspense
           fallback={
             <div className="text-center my-32">
@@ -61,6 +31,7 @@ export function UiLayout({ children, links }: { children: ReactNode; links: { la
         </Suspense>
         <Toaster position="bottom-right" />
       </div>
+
       <footer className="footer footer-center p-4 bg-base-300 text-base-content">
         <aside>
           <p>
@@ -77,7 +48,7 @@ export function UiLayout({ children, links }: { children: ReactNode; links: { la
         </aside>
       </footer>
     </div>
-  )
+  );
 }
 
 export function AppModal({

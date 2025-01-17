@@ -1,16 +1,28 @@
+import { PublicKey } from '@solana/web3.js'
 import { BlinksSAF } from '../blink/blink'
-import { AppHero } from '../ui/ui-layout'
+import { AccountBalance, AccountTransactions } from '../account/account-ui'
+import { useMemo } from 'react'
+import { useParams } from 'next/navigation'
+import { AppHero ,ellipsify} from '../ui/ui-layout'
+import { ExplorerLink } from '../cluster/cluster-ui'
+
 
 export const DonateProvider: React.FC = () => {
-
+  console.log("Wallet: ", process.env.wallet);
+  const address = new PublicKey("BN8LeCtMenajmBbzRKqkPFcP2hAJjrtCFfd4XmUqxJ9G");
   return (
     <div>
-         <AppHero title="Donate" subtitle='"The time to act is now! ... before their silence becomes our legacy."' />
-         <div className="max-w-xl mx-auto py-6 sm:px-6 lg:px-8 text-center">
-         <div className="space-y-0"> {/* Remove extra vertical spacing */}
+        <AppHero
+              title={<AccountBalance address={address} />}
+              subtitle={
+                <div className="my-4">
+                  <ExplorerLink path={`account/${address}`} label={ellipsify(address.toString())} />
+                </div>
+              }
+            >
+            </AppHero>
+         
       <BlinksSAF />
-    </div>
-         </div>
     </div>
   );
 };
