@@ -122,7 +122,7 @@ export default function ContactProvider() {
 
             {/* reCAPTCHA */}
             <ReCAPTCHA
-              sitekey={"6LcmI7sqAAAAACiCuKUN5ys6ANCpoSPJR1fR5x6n"} // Use your site key here
+              sitekey={"6LctI7sqAAAAACuZ5cuJkw1JIfyFfPMfe2nZ2WDg"} // Use your site key here
               onChange={handleCaptchaChange}
             />
 
