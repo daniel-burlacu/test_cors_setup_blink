@@ -2,35 +2,16 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
   try {
-    const { name, email, message, captchaToken  } = await req.json();
+    const { name, email, message } = await req.json();
 
-      // Validate the required fields
-      if (!name || !email || !message || !captchaToken) {
-        return NextResponse.json(
-          { success: false, message: 'All fields are required.' },
-          { status: 400 }
-        );
-      }
+    // Validate the required fields
+    if (!name || !email || !message) {
+      return NextResponse.json(
+        { success: false, message: 'All fields are required.' },
+        { status: 400 }
+      );
+    }
 
-      if (!captchaToken) {
-        return NextResponse.json({ success: false, message: 'CAPTCHA token is missing.' }, { status: 400 });
-      }
-  
-      // Verify reCAPTCHA token
-      const secretKey = process.env.RECAPTCHA_SECRET_KEY!;
-      const verifyResponse = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          secret: secretKey,
-          response: captchaToken,
-        }),
-      });
-  
-      const verifyResult = await verifyResponse.json();
-      if (!verifyResult.success || verifyResult.score < 0.5) {
-        return NextResponse.json({ success: false, message: 'CAPTCHA verification failed. Please try again.' }, { status: 400 });
-      }
     // Replace these with your EmailJS credentials
     const serviceID = process.env.EMAILJS_SERVICE_ID!;
     const templateID = process.env.EMAILJS_TEMPLATE_ID!;

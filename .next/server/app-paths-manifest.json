@@ -1,1 +1,6 @@
-{}
+{
+  "/page": "app/page.js",
+  "/contactus/page": "app/contactus/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/api/emailjs/route": "app/api/emailjs/route.js"
+}
