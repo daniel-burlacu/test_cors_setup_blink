@@ -38,7 +38,7 @@ export const ProjectDescriptionProvider: React.FC = () => {
   
   return (
     <div>
-         <div className="min-h-screen bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 flex flex-col items-center justify-center py-10">
+         <div className="min-h-screen bg-gradient-to-r  bg-gradient-to-r from-blue-500 via-green-500 to-blue-700 flex flex-col items-center justify-center py-10">
       <motion.h1
         className="text-4xl md:text-6xl font-bold text-white mb-8"
         initial={{ opacity: 0, y: -50 }}

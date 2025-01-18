@@ -23,7 +23,7 @@ export const AboutUsProvider: React.FC = () => {
           name: 'Daniel Burlacu',
           link: 'https://www.linkedin.com/in/daniel-burlacu-3879a689/',
           description:
-            'Daniel is a Senior Fullstack Developer with 11+ years of experience building high-performance Web2 applications. Skilled in different programming languages and backend technologies, he is exploring Web3 to bring innovative, future-proof solutions to life.',
+            'A highly experienced Senior Fullstack Developer with over 11 years of expertise in designing and implementing high-performance Web2 applications. Proficient in multiple programming languages and backend technologies, this individual is actively engaging with Web3 advancements to develop innovative, scalable, and future-proof solutions.',
         },
       ],
     },
@@ -50,7 +50,7 @@ export const AboutUsProvider: React.FC = () => {
 
   return (
     <div>
-      <div className="min-h-screen bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 flex flex-col items-center justify-center py-10">
+      <div className="min-h-screen bg-gradient-to-r  bg-gradient-to-r from-blue-500 via-green-500 to-blue-700 flex flex-col items-center justify-center py-10">
         <motion.h1
           className="text-4xl md:text-6xl font-bold text-white mb-8"
           initial={{ opacity: 0, y: -50 }}

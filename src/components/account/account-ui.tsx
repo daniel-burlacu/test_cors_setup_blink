@@ -15,13 +15,21 @@ import {
   useRequestAirdrop,
   useTransferSol,
 } from './account-data-access'
+import { motion } from 'framer-motion'
 
 export function AccountBalance({ address }: { address: PublicKey }) {
   const query = useGetBalance({ address })
 
   return (
     <div>
-      <h2>Donated till now</h2>
+       <motion.h1
+                className="text-xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-green-500 to-blue-700"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1 }}
+              >
+              Donated till now
+              </motion.h1>
       <h1 className="text-5xl font-bold cursor-pointer" onClick={() => query.refetch()}>
         {query.data ? <BalanceSol balance={query.data} /> : '...'} SOL
       </h1>

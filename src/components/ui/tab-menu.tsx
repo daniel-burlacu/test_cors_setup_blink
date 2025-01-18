@@ -59,7 +59,7 @@ export function TabMenu({ links }: { links: { label: string; path: string }[] })
               href={path}
               className={`tab ${
                 pathname.startsWith(path) ? 'tab-active' : ''
-              } text-blue-900 hover:bg-blue-100 active:bg-blue-200 hover:scale-105 active:scale-95 transition-all duration-150`}
+              } text-white hover:bg-blue-400 active:bg-blue-300 hover:scale-105 active:scale-95 transition-all duration-150`}
             >
               {label}
             </Link>
