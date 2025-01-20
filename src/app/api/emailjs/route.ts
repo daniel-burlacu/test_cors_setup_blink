@@ -4,7 +4,6 @@ export async function POST(req: Request) {
   try {
     const { name, email, message } = await req.json();
 
-    // Validate the required fields
     if (!name || !email || !message) {
       return NextResponse.json(
         { success: false, message: 'All fields are required.' },
@@ -12,26 +11,18 @@ export async function POST(req: Request) {
       );
     }
 
-    // Replace these with your EmailJS credentials
-    const serviceID = process.env.EMAILJS_SERVICE_ID!;
-    const templateID = process.env.EMAILJS_TEMPLATE_ID!;
-    const publicKey = process.env.EMAILJS_PUBLIC_KEY!;
-    const privateKey = process.env.EMAILJS_PRIVATE_KEY!; // Optional unless strict mode is enabled
-
-    // Prepare request payload
     const payload = {
-      service_id: serviceID,
-      template_id: templateID,
-      user_id: publicKey,
-      accessToken: privateKey, // Optional, required in strict mode
+      service_id: process.env.EMAILJS_SERVICE_ID,
+      template_id: process.env.EMAILJS_TEMPLATE_ID,
+      user_id: process.env.EMAILJS_PUBLIC_KEY,
+      accessToken: process.env.EMAILJS_PRIVATE_KEY,
       template_params: {
         username: name,
         user_email: email,
-        message_content: message,
+        message: message,
       },
     };
 
-    // Make a POST request to the EmailJS API
     const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
       method: 'POST',
       headers: {
@@ -40,20 +31,16 @@ export async function POST(req: Request) {
       body: JSON.stringify(payload),
     });
 
-    // Handle response
+    const responseText = await response.text();
+    console.log('EmailJS Response:', responseText);
+
     if (!response.ok) {
-      const errorText = await response.text(); // Get raw error text
-      console.error('EmailJS API Error:', errorText);
-      throw new Error(`EmailJS API returned an error: ${response.status} ${response.statusText}`);
+      throw new Error(`EmailJS Error: ${response.statusText}`);
     }
 
-    // Return success response
-    return NextResponse.json({
-      success: true,
-      message: 'Email sent successfully!',
-    });
+    return NextResponse.json({ success: true, message: 'Email sent successfully!' });
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('Error:', error);
     return NextResponse.json(
       { success: false, message: 'Failed to send email.' },
       { status: 500 }

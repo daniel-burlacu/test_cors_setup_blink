@@ -16,7 +16,9 @@ export default function ContactProvider() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSending(true);
-  
+
+    console.log('Form data being sent:', formData);
+
     try {
       const response = await fetch('/api/emailjs', {
         method: 'POST',
@@ -27,7 +29,7 @@ export default function ContactProvider() {
       });
   
       const data = await response.json();
-  
+
       if (data.success) {
         setSuccessMessage('Your message has been sent successfully!');
         setFormData({ name: '', email: '', message: '' }); // Reset form
