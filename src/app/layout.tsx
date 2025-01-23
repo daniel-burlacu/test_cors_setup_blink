@@ -18,6 +18,7 @@ const links: { label: string; path: string }[] = [
   { label: 'Project', path: '/project' }, // Add this
   { label: 'Road-Map', path: '/roadmap' }, // Add this
   { label: 'About-Us', path: '/aboutus' }, // Add this
+  { label: 'Architecture', path: '/architecture' }, // Add this
   { label: 'Contact-Us', path: '/contactus' }, // Add this
 ]
 

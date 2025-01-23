@@ -11,7 +11,6 @@ import { AccountBalance, AccountTransactions } from './account-ui'
 
 export default function AccountDetailFeature() {
   const address = new PublicKey("BN8LeCtMenajmBbzRKqkPFcP2hAJjrtCFfd4XmUqxJ9G");
-
   return (
     <div>
       <AppHero
