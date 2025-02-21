@@ -10,6 +10,7 @@ pub mod instructions;
 
 use crate::contexts::*;
 use crate::instructions::initialize;
+
 #[program]
 pub mod solana_vet {
     use super::*;
@@ -60,7 +61,4 @@ pub mod solana_vet {
         // Delegate logic to instructions module
         instructions::add_animal(ctx, info)
     }
-
-    
-
 }
