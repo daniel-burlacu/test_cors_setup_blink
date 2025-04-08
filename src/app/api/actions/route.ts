@@ -56,7 +56,7 @@ import {
   
     const responseBody: ActionGetResponse = transactionCompleted
       ? {
-          icon: "https://bafkreibllcqfjk5ch26tdq7sqotkq3xxlymivip6ta7rdjhaf2qccnzc7u.ipfs.flk-ipfs.xyz",
+          icon: "https://devnet.irys.xyz/FRK2U41TQSv2tnKzBtuY3LkhqSM6q8GrvbQQJyvVSrut",
           description: "Thank you for your donation! You can now mint your NFT.",
           title: "Solana Ark Foundation Supporter",
           label: "Mint an NFT",
@@ -72,7 +72,7 @@ import {
         }
       : {
           //icon: "https://bafybeibqfafl757oc2ts3dnyxpapq7fthx2og2kod4cd3yeysm7q6hxaxq.ipfs.flk-ipfs.xyz",
-          icon: "https://bafkreibllcqfjk5ch26tdq7sqotkq3xxlymivip6ta7rdjhaf2qccnzc7u.ipfs.flk-ipfs.xyz",
+          icon: "https://devnet.irys.xyz/FRK2U41TQSv2tnKzBtuY3LkhqSM6q8GrvbQQJyvVSrut",
           description:
             "The time to act is now! ... before their silence becomes our legacy.",
           title: "Solana Ark Foundation Supporter",
@@ -214,7 +214,7 @@ import {
               type: "inline",
               action: {
                 type: "action",
-                icon: "https://bafybeibqfafl757oc2ts3dnyxpapq7fthx2og2kod4cd3yeysm7q6hxaxq.ipfs.flk-ipfs.xyz",
+                icon: "https://devnet.irys.xyz/ERXUytdJNnNGXHkTFbKBMaHe6dQbTE36cuXtgCxw2fgy",
                 label: "Mint NFT",
                 title: "Mint SAF Supporter Badge NFT",
                 disabled: false,
