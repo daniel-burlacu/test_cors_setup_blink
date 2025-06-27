@@ -23,6 +23,7 @@ import {
 
 // import wallet from "/home/daniel/.solana/.config/localwallet.json";
 const wallet = JSON.parse(process.env.KEY_WALLET || '[]');
+const vault = JSON.parse(process.env.PUBLIC_KEY || '');
 // import { mintNFTForUser } from "../nft/nft_mint_wallet";
 // import { mintNFTForUser } from "../nft/nft_mint";
 import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
@@ -198,7 +199,7 @@ import {
   
       const transferInstruction = SystemProgram.transfer({
         fromPubkey: userPubkey,
-        toPubkey: new PublicKey("BN8LeCtMenajmBbzRKqkPFcP2hAJjrtCFfd4XmUqxJ9G"),
+        toPubkey: new PublicKey(vault),
         lamports,
       });
   

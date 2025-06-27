@@ -20,9 +20,9 @@ export const BlinksSAF = () => {
   });
 
   
-   if (isLoading) return null; 
+   if (isLoading) return "Loading..."; 
 
-   if (!action) return null;
+   if (!action) return "No action found";
 
    return (
     <div className="-mt-10"> {/* Use negative margin */}

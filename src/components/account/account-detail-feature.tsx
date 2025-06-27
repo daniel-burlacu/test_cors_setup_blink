@@ -10,7 +10,8 @@ import { AppHero, ellipsify } from '../ui/ui-layout'
 import { AccountBalance, AccountTransactions } from './account-ui'
 
 export default function AccountDetailFeature() {
-  const address = new PublicKey("BN8LeCtMenajmBbzRKqkPFcP2hAJjrtCFfd4XmUqxJ9G");
+  const vault = JSON.parse(process.env.PUBLIC_KEY || '');
+  const address = new PublicKey(vault);
   return (
     <div>
       <AppHero

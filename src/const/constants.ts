@@ -1,7 +1,8 @@
 import { PublicKey } from "@solana/web3.js";
 
+const vault = JSON.parse(process.env.PUBLIC_KEY || '');
 export const DEFAULT_SOL_ADDRESS: PublicKey = new PublicKey(
-  "BN8LeCtMenajmBbzRKqkPFcP2hAJjrtCFfd4XmUqxJ9G", // devnet wallet
+ vault, // devnet wallet
 );
 
 // export const ACTIONS_CORS_HEADERS = {
