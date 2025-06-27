@@ -309,7 +309,7 @@ import {
                 type: "inline",
                 action: {
                   type: "action",
-                  icon: "https://bafybeibqfafl757oc2ts3dnyxpapq7fthx2og2kod4cd3yeysm7q6hxaxq.ipfs.flk-ipfs.xyz",
+                  icon: "https://devnet.irys.xyz/GdwTMKz2aXVohdzU6nsC9pHDCm7FJ8kdZdYHoU1LoJSF",
                   label: "NFT Minted completed !",
                   title: "NFT Minted Successfully !",
                   disabled: false,
