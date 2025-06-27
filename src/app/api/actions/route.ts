@@ -23,7 +23,10 @@ import {
 
 // import wallet from "/home/daniel/.solana/.config/localwallet.json";
 const wallet = JSON.parse(process.env.KEY_WALLET || '[]');
-const vault = JSON.parse(process.env.PUBLIC_KEY || '');
+const vault = process.env.PUBLIC_KEY || '';
+if (!vault) {
+  throw new Error("Missing PUBLIC_KEY in environment variables");
+}
 // import { mintNFTForUser } from "../nft/nft_mint_wallet";
 // import { mintNFTForUser } from "../nft/nft_mint";
 import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";

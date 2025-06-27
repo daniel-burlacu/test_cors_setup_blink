@@ -10,7 +10,10 @@ import { AppHero, ellipsify } from '../ui/ui-layout'
 import { AccountBalance, AccountTransactions } from './account-ui'
 
 export default function AccountDetailFeature() {
-  const vault = JSON.parse(process.env.PUBLIC_KEY || '');
+const vault = process.env.PUBLIC_KEY || '';
+  if (!vault) {
+  throw new Error("Missing PUBLIC_KEY in environment variables");
+}
   const address = new PublicKey(vault);
   return (
     <div>

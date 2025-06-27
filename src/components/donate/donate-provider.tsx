@@ -7,8 +7,10 @@ import { motion } from 'framer-motion'
 
 
 export const DonateProvider: React.FC = () => {
-  console.log("Wallet: ", process.env.wallet);
-  const vault = JSON.parse(process.env.PUBLIC_KEY || '');
+  const vault = process.env.PUBLIC_KEY || '';
+  if (!vault) {
+  throw new Error("Missing PUBLIC_KEY in environment variables");
+}
   const address = new PublicKey(vault);
   return (
     <div>
