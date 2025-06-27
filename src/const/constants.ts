@@ -1,8 +1,8 @@
 import { PublicKey } from "@solana/web3.js";
 
-const vault = process.env.PUBLIC_KEY || '';
+const vault = process.env.VAULT_PUBLIC_KEY || '';
 if (!vault) {
-  throw new Error("Missing PUBLIC_KEY in environment variables");
+  throw new Error("Missing VAULT_PUBLIC_KEY in environment variables");
 }
 export const DEFAULT_SOL_ADDRESS: PublicKey = new PublicKey(
  vault, // devnet wallet
