@@ -23,10 +23,10 @@ import {
 
 // import wallet from "/home/daniel/.solana/.config/localwallet.json";
 const wallet = JSON.parse(process.env.KEY_WALLET || '[]');
-const vault = process.env.VAULT_PUBLIC_KEY || '';
+const vault = process.env.NEXT_PUBLIC_VAULT_PUBLIC_KEY || '';
 console.log("Vault Public Key: ", vault);
 if (!vault) {
-  throw new Error("Missing VAULT_PUBLIC_KEY in environment variables");
+  throw new Error("Missing NEXT_PUBLIC_VAULT_PUBLIC_KEY in environment variables");
 }
 // import { mintNFTForUser } from "../nft/nft_mint_wallet";
 // import { mintNFTForUser } from "../nft/nft_mint";
