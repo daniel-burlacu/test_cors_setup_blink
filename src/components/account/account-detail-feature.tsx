@@ -11,9 +11,7 @@ import { AccountBalance, AccountTransactions } from './account-ui'
 
 export default function AccountDetailFeature() {
 const vault = process.env.VAULT_PUBLIC_KEY || '';
-  if (!vault) {
-  throw new Error("Missing VAULT_PUBLIC_KEY in environment variables");
-}
+
   const address = new PublicKey(vault);
   return (
     <div>
