@@ -8,7 +8,10 @@ import { motion } from 'framer-motion'
 
 export const DonateProvider: React.FC = () => {
   const vault = process.env.VAULT_PUBLIC_KEY || '';
-
+  console.log("Vault Public Key: ", vault);
+  if (!vault) {
+  throw new Error("Missing VAULT_PUBLIC_KEY in environment variables");
+}
   const address = new PublicKey(vault);
   return (
     <div>
