@@ -159,6 +159,7 @@ import {
   
     // Prepare a new transaction
     const tx = new Transaction();
+    
     tx.feePayer = userPubkey;
     console.log("Fee Payer: ", tx.feePayer.toBase58());
   
@@ -208,11 +209,16 @@ import {
       });
   
       tx.add(transferInstruction);
-  
-      const responseBody: ActionPostResponse = await createPostResponse({
-        fields: {
+
+       const serializedTx = tx
+      .serialize({
+      requireAllSignatures: false, // Let Blink handle the signing
+      verifySignatures: false,
+     }).toString("base64");
+
+           const responseBody: ActionPostResponse = {
           type: "transaction",
-          transaction: tx,
+          transaction: serializedTx,
           message: "Donation successful ! You can now proceed to mint your NFT Supporter Badge. Please note, transaction fees will be covered by you to complete the minting process.",
           links: {
             next: {
@@ -236,16 +242,38 @@ import {
               },
             },
           },
-        },
-      });
+      };
   
-  const serializedTx = tx
-  .serialize({
-    requireAllSignatures: false, // Let Blink handle the signing
-    verifySignatures: false,
-  })
-  .toString("base64");
-  
+      // const responseBody: ActionPostResponse = await createPostResponse({
+      //   fields: {
+      //     type: "transaction",
+      //     transaction: tx,
+      //     message: "Donation successful ! You can now proceed to mint your NFT Supporter Badge. Please note, transaction fees will be covered by you to complete the minting process.",
+      //     links: {
+      //       next: {
+      //         type: "inline",
+      //         action: {
+      //           type: "action",
+      //           icon: "https://devnet.irys.xyz/ERXUytdJNnNGXHkTFbKBMaHe6dQbTE36cuXtgCxw2fgy",
+      //           label: "Mint NFT",
+      //           title: "Mint SAF Supporter Badge NFT",
+      //           disabled: false,
+      //           description: "Mint your Solana Ark Foundation Supporter Badge.",
+      //           links: {
+      //             actions: [
+      //               {
+      //                 type: "transaction",
+      //                 label: "Mint NFT",
+      //                 href: url.origin + "/api/actions?action=mint",
+      //               },
+      //             ],
+      //           },
+      //         },
+      //       },
+      //     },
+      //   },
+      // });
+    
   return Response.json(responseBody, { headers: ACTIONS_CORS_HEADERS });
       
     } else if (action === "mint") {
@@ -298,11 +326,16 @@ import {
         });
   
         txFee.add(transferInstruction);
-  
-        const responseBody: ActionPostResponse = await createPostResponse({
-          fields: {
+
+      const serializedTxFee = txFee
+      .serialize({
+      requireAllSignatures: false, // Let Blink handle the signing
+      verifySignatures: false,
+     }).toString("base64");
+
+       const responseBody: ActionPostResponse = {
             type: "transaction",
-            transaction: txFee,
+            transaction: serializedTxFee,
             message: "NFT Minted successfuly!",
             links: {
               next: {
@@ -326,8 +359,37 @@ import {
                 },
               },
             },
-          },
-        });
+        };
+  
+        // const responseBody: ActionPostResponse = await createPostResponse({
+        //   fields: {
+        //     type: "transaction",
+        //     transaction: txFee,
+        //     message: "NFT Minted successfuly!",
+        //     links: {
+        //       next: {
+        //         type: "inline",
+        //         action: {
+        //           type: "action",
+        //           icon: "https://devnet.irys.xyz/GdwTMKz2aXVohdzU6nsC9pHDCm7FJ8kdZdYHoU1LoJSF",
+        //           label: "NFT Minted completed !",
+        //           title: "NFT Minted Successfully !",
+        //           disabled: false,
+        //           description: "You can now proceed to transfer the NFT to your wallet. Transfer is free of charge, transaction fees are on us !",
+        //           links: {
+        //             actions: [
+        //               {
+        //                 type: "transaction",
+        //                 label: "Transfer NFT !",
+        //                 href: "/api/actions?action=feePayed",
+        //               },
+        //             ],
+        //           },
+        //         },
+        //       },
+        //     },
+        //   },
+        // });
       
     
 
