@@ -216,9 +216,9 @@ import {
       verifySignatures: false,
      }).toString("base64");
 
-           const responseBody: ActionPostResponse = {
-          type: "transaction", 
-          transaction: serializedTx,
+      const responseBody: ActionPostResponse = {
+          type: "base64-transaction", 
+          base64Transaction: serializedTx,
           message: "Donation successful ! You can now proceed to mint your NFT Supporter Badge. Please note, transaction fees will be covered by you to complete the minting process.",
           links: {
             next: {
@@ -242,7 +242,7 @@ import {
               },
             },
           },
-      };
+      } as any;
   
       // const responseBody: ActionPostResponse = await createPostResponse({
       //   fields: {
@@ -334,8 +334,8 @@ import {
      }).toString("base64");
 
        const responseBody: ActionPostResponse = {
-            type: "transaction", 
-            transaction: serializedTxFee,
+            type: "base64-transaction", 
+            base64Transaction: serializedTxFee,
             message: "NFT Minted successfuly!",
             links: {
               next: {
@@ -359,7 +359,7 @@ import {
                 },
               },
             },
-        };
+        }as any;
   
         // const responseBody: ActionPostResponse = await createPostResponse({
         //   fields: {
