@@ -1,17 +1,17 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/aboutus/page": "app/aboutus/page.js",
-  "/account/[address]/page": "app/account/[address]/page.js",
   "/account/page": "app/account/page.js",
-  "/api/emailjs/route": "app/api/emailjs/route.js",
+  "/aboutus/page": "app/aboutus/page.js",
+  "/contactus/page": "app/contactus/page.js",
   "/architecture/page": "app/architecture/page.js",
   "/clusters/page": "app/clusters/page.js",
-  "/contactus/page": "app/contactus/page.js",
-  "/donate/page": "app/donate/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/home/page": "app/home/page.js",
+  "/donate/page": "app/donate/page.js",
+  "/api/emailjs/route": "app/api/emailjs/route.js",
   "/page": "app/page.js",
-  "/project/page": "app/project/page.js",
   "/roadmap/page": "app/roadmap/page.js",
+  "/project/page": "app/project/page.js",
+  "/account/[address]/page": "app/account/[address]/page.js",
   "/api/actions/route": "app/api/actions/route.js"
 }

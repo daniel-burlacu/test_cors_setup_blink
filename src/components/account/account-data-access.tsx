@@ -14,6 +14,7 @@ import {
 import {useMutation, useQuery, useQueryClient} from '@tanstack/react-query'
 import toast from 'react-hot-toast'
 import {useTransactionToast} from '../ui/ui-layout'
+import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
 
 export function useGetBalance({ address }: { address: PublicKey }) {
   const { connection } = useConnection()
@@ -60,30 +61,54 @@ export function useTransferSol({ address }: { address: PublicKey }) {
 
   return useMutation({
     mutationKey: ['transfer-sol', { endpoint: connection.rpcEndpoint, address }],
-    mutationFn: async (input: { destination: PublicKey; amount: number }) => {
-      let signature: TransactionSignature = ''
-      try {
-        const { transaction, latestBlockhash } = await createTransaction({
-          publicKey: address,
-          destination: input.destination,
-          amount: input.amount,
-          connection,
-        })
+    // mutationFn: async (input: { destination: PublicKey; amount: number }) => {
+    //   let signature: TransactionSignature = ''
+    //   try {
+    //     const { transaction, latestBlockhash } = await createTransaction({
+    //       publicKey: address,
+    //       destination: input.destination,
+    //       amount: input.amount,
+    //       connection,
+    //     })
 
-        // Send transaction and await for signature
-        signature = await wallet.sendTransaction(transaction, connection)
+    //     // Send transaction and await for signature
+    //     signature = await wallet.sendTransaction(transaction, connection)
 
-        // Send transaction and await for signature
-        await connection.confirmTransaction({ signature, ...latestBlockhash }, 'confirmed')
+    //     // Send transaction and await for signature
+    //     await connection.confirmTransaction({ signature, ...latestBlockhash }, 'confirmed')
 
-        console.log(signature)
-        return signature
-      } catch (error: unknown) {
-        console.log('error', `Transaction failed! ${error}`, signature)
+    //     console.log(signature)
+    //     return signature
+    //   } catch (error: unknown) {
+    //     console.log('error', `Transaction failed! ${error}`, signature)
 
-        return
-      }
-    },
+    //     return
+    //   }
+    // }
+    
+  mutationFn: async (input: { destination: PublicKey; amount: number }) => {
+  let signature: TransactionSignature = ''
+  try {
+    const { transaction, latestBlockhash } = await createTransaction({
+      publicKey: address,
+      destination: input.destination,
+      amount: input.amount,
+      connection,
+    })
+
+    // 👇 Replaced with Phantom's secure method
+    // @ts-ignore
+    signature = await wallet.addapter.name === 'Phantom' ? window.solana.signAndSendTransaction(transaction) : await connection.confirmTransaction({ signature, ...latestBlockhash }, 'confirmed');
+
+    await connection.confirmTransaction({ signature, ...latestBlockhash }, 'confirmed')
+
+    console.log(signature)
+    return signature
+  } catch (error: unknown) {
+    console.log('error', `Transaction failed! ${error}`, signature)
+    return
+  }
+},
     onSuccess: (signature) => {
       if (signature) {
         transactionToast(signature)
