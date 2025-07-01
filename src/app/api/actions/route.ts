@@ -217,7 +217,7 @@ import {
      }).toString("base64");
 
            const responseBody: ActionPostResponse = {
-          type: "transaction",
+          type: "base64-transaction" as any, 
           transaction: serializedTx,
           message: "Donation successful ! You can now proceed to mint your NFT Supporter Badge. Please note, transaction fees will be covered by you to complete the minting process.",
           links: {
@@ -334,7 +334,7 @@ import {
      }).toString("base64");
 
        const responseBody: ActionPostResponse = {
-            type: "transaction",
+            type: "base64-transaction" as any, 
             transaction: serializedTxFee,
             message: "NFT Minted successfuly!",
             links: {
