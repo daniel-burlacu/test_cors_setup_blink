@@ -17,13 +17,13 @@ export const AboutUsProvider: React.FC = () => {
           name: 'Ioana Irina',
           link: 'https://www.linkedin.com/in/ioanairina/',
           description:
-            'With a PhD in Marketing and over a decade of experience in technology, Ioana thrives at the intersection of Marketing and Tech. Passionate about building high-performing teams, she empowers individuals to grow and drive innovation.',
+            'Ioana holds a PhD in Marketing and brings over a decade of experience in technology and leadership, thriving where marketing and technology meet. She is passionate about building high-performing teams, empowering people to grow, and driving innovation. What motivates her most is turning insight into action — translating market complexity into opportunities for growth in fast-moving industries. A lifelong animal lover, Ioana grew up on her parents’ farm in the Carpathian Mountains, where her connection to nature and animals deepened. Today, she is the proud mom of a spirited Vizsla who happily takes up most of her free time.',
         },
         {
           name: 'Daniel Burlacu',
           link: 'https://www.linkedin.com/in/daniel-burlacu-3879a689/',
           description:
-            'A highly experienced Senior Fullstack Developer with over 11 years of expertise in designing and implementing high-performance Web2 applications. Proficient in multiple programming languages and backend technologies, this individual is actively engaging with Web3 advancements to develop innovative, scalable, and future-proof solutions.',
+            'Daniel is a Senior Fullstack Developer with more than 11 years of experience designing and delivering high-performance Web2 applications. Skilled across multiple programming languages and backend technologies, he is now exploring Web3 innovations to build scalable, future-ready solutions. A lifelong admirer of nature and animals, Daniel’s bond with his dog over the past decade has deepened his appreciation for the unique connection between humans and pets.',
         },
       ],
     },
