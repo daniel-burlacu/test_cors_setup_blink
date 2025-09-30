@@ -76,7 +76,7 @@ export default function InvestorPresentation() {
               text: "Free platform for clinics and shelters that generates standardized data. After 3 months free trial, companies subscribe annually. Built-in product campaigns and AI-driven recommendations.",
             },
           ].map((item, idx) => (
-            <Grid size={{ xs:12, md:6}} key={idx}>
+            <Grid item xs={12} md={6} key={idx}>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -125,7 +125,7 @@ export default function InvestorPresentation() {
                 text: "Sponsored sales campaigns (€5k–€20k each).",
               },
             ].map((item, idx) => (
-              <Grid size={{ xs:12, md:4}}  key={idx}>
+              <Grid item xs={12} md={4} key={idx}>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
