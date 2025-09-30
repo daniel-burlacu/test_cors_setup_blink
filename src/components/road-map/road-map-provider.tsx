@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 export const RoadMapProvider: React.FC = () => {
   const roadmapSteps = [
     {
-      title: 'Pilot Application',
+      title: 'Pilot Application - we are here !',
       description:
         'Launch a simplified Web3 application for veterinary cabinets to test adding data to the blockchain.',
       icon: '🚀',
@@ -30,7 +30,7 @@ export const RoadMapProvider: React.FC = () => {
   ];
   return (
     <div>
-         <div className="min-h-screen bg-gradient-to-r  bg-gradient-to-r from-blue-500 via-green-500 to-blue-700 flex flex-col items-center justify-center py-10">
+         <div className="min-h-screen bg-gradient-to-r  bg-gradient-to-r from-green-800 via-green-600 to-green-700 flex flex-col items-center justify-center py-10">
       <motion.h1
         className="text-4xl md:text-6xl font-bold text-white mb-8"
         initial={{ opacity: 0, y: -50 }}

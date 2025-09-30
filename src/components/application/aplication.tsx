@@ -17,7 +17,7 @@ import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import CampaignIcon from "@mui/icons-material/Campaign";
 import { motion } from "framer-motion";
 
-const highlight = { color: "#9945ff" }; // Solana purple highlight
+const highlight = { color: "#038e3dff" }; // Solana purple highlight
 const cardBg = { bgcolor: "#f9f9f9", borderRadius: 2 }; // light cards
 
 export default function InvestorPresentation() {
@@ -37,14 +37,14 @@ export default function InvestorPresentation() {
             rel="noopener noreferrer"
             variant="contained"
             sx={{
-              bgcolor: "#9945ff",
+              bgcolor: "#036c2aff",
               color: "white",
               textTransform: "none",
               fontWeight: "bold",
               borderRadius: "8px",
               px: 3,
               py: 1,
-              "&:hover": { bgcolor: "#7a2ee6" },
+              "&:hover": { bgcolor: "#058d50ff" },
             }}
           >
             🚀 View Demo Application
@@ -73,7 +73,7 @@ export default function InvestorPresentation() {
           <Grid container spacing={4}>
             {[
               {
-                icon: <PetsIcon sx={{ fontSize: 40, color: "#9945ff" }} />,
+                icon: <PetsIcon sx={{ fontSize: 40, color: "#ee04eaff" }} />,
                 title: "Clinics & Shelters",
                 text: "Free access, maximum adoption.",
               },
@@ -183,12 +183,12 @@ export default function InvestorPresentation() {
               valuable for industries, life-changing for pets.
             </Typography>
             <Stack direction="row" spacing={2} justifyContent="center">
-              <Button
+              {/* <Button
                 variant="contained"
                 sx={{ bgcolor: "#9945ff", color: "white" }}
               >
                 Request Investor Deck
-              </Button>
+              </Button> */}
               <Button
                 href="https://www.solana-ark-foundation.xyz/contactus"
                 target="_blank"

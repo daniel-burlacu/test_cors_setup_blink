@@ -28,7 +28,7 @@ export const DonateProvider: React.FC = () => {
              {/* Quote Text */}
              <div className="max-w-xl mx-auto py-6 sm:px-6 lg:px-8 text-center">
              <motion.h1
-                className="text-xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-green-500 to-blue-700"
+                className="text-xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-500 via-green-600 to-green-700"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1 }}

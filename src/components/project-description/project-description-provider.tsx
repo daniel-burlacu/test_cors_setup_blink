@@ -1,5 +1,4 @@
 import { Typography } from '@mui/material';
-import { AppHero } from '../ui/ui-layout'
 import { motion } from 'framer-motion';
 
 export const ProjectDescriptionProvider: React.FC = () => {
@@ -16,13 +15,13 @@ export const ProjectDescriptionProvider: React.FC = () => {
             By bringing this knowledge together, we generate{" "}
             <strong>insights that improve treatments</strong> and{" "}
             <strong>advance research</strong> — always with{" "}
-            <span style={{ color: "#9945ff", fontWeight: "bold" }}>pets</span> at the
+            <span style={{ color: "#0a4616ff", fontWeight: "bold" }}>pets</span> at the
             center of our purpose.
           </Typography>
 
           <Typography paragraph sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}>
             We believe <strong>every pet deserves access to better care</strong>, and
-            that <span style={{ color: "#14f195", fontWeight: "bold" }}>open,
+            that <span style={{ color: "#055835ff", fontWeight: "bold" }}>open,
               collaborative data</span> is the key to making it happen.
           </Typography></>),
       icon: '🌍',
@@ -65,7 +64,7 @@ export const ProjectDescriptionProvider: React.FC = () => {
         (<><Typography paragraph sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}>
           <strong>Veterinarians</strong> together with <strong>Animal Care Shelters</strong> securely enter{" "}
           <strong>anonymized case data</strong>, which our platform aggregates in full{" "}
-          <span style={{ color: "#9945ff", fontWeight: "bold" }}>
+          <span style={{ color: "#0a4616ff", fontWeight: "bold" }}>
             GDPR / AVG compliance
           </span>
           .
@@ -74,7 +73,7 @@ export const ProjectDescriptionProvider: React.FC = () => {
           <Typography paragraph sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}>
             This creates <strong>trusted insights and trends</strong> that empower
             veterinarians to deliver{" "}
-            <span style={{ color: "#14f195", fontWeight: "bold" }}>
+            <span style={{ color: "#055835ff", fontWeight: "bold" }}>
               better treatments
             </span>{" "}
             and ensure{" "}
@@ -129,7 +128,7 @@ export const ProjectDescriptionProvider: React.FC = () => {
 
   return (
     <div>
-      <div className="min-h-screen bg-gradient-to-r  bg-gradient-to-r from-blue-500 via-green-500 to-blue-700 flex flex-col items-center justify-center py-10">
+      <div className="min-h-screen bg-gradient-to-r  bg-gradient-to-r from-green-800 via-green-600 to-green-700 flex flex-col items-center justify-center py-10">
         <motion.h1
           className="text-4xl md:text-6xl font-bold text-white mb-8"
           initial={{ opacity: 0, y: -50 }}

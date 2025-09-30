@@ -5,6 +5,8 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { WalletButton } from '../solana/solana-provider';
 import { ClusterUiSelect } from '../cluster/cluster-ui';
+import { motion } from 'framer-motion';
+import logo from '../../../public/SAFLogo.png';
 
 export function TabMenu({ links }: { links: { label: string; path: string }[] }) {
   const pathname = usePathname();
@@ -14,14 +16,22 @@ export function TabMenu({ links }: { links: { label: string; path: string }[] })
     <div
       className="fixed top-0 left-0 w-full z-50 text-neutral-content shadow-lg"
       style={{
-        background: 'linear-gradient(90deg, #4ADEDE, #5B7DFF, #4A94FF)',
+        background: 'linear-gradient(90deg, #266946ff, #2f8402ff, #5b6b57ff)',
       }}
     >
       {/* Navbar container */}
       <div className="flex items-center justify-between max-w-7xl mx-auto px-4 py-2">
         {/* Logo */}
         <Link className="btn btn-ghost normal-case text-xl flex items-center" href="/">
-          <img className="h-10" alt="Logo" src="/SAFLogo.png" />
+                     <motion.img
+          className="block mx-auto w-10 "
+          alt="Logo"
+          src={logo.src}
+          initial={{ y: -10, opacity: 0 }}
+          animate={{
+            y: [0, -10, 0], // Smooth up-and-down motion
+            opacity: [0.6, 1, 0.6], // fades in/out smoothly // stays at 80% transparent
+          }} />
         </Link>
 
         {/* WalletButton and ClusterUiSelect for smaller screens */}
@@ -59,7 +69,7 @@ export function TabMenu({ links }: { links: { label: string; path: string }[] })
               href={path}
               className={`tab ${
                 pathname.startsWith(path) ? 'tab-active' : ''
-              } text-white hover:bg-blue-400 active:bg-blue-300 hover:scale-105 active:scale-95 transition-all duration-150`}
+              } text-white hover:bg-green-800 active:bg-green-600 hover:scale-105 active:scale-95 transition-all duration-150`}
             >
               {label}
             </Link>
@@ -75,7 +85,7 @@ export function TabMenu({ links }: { links: { label: string; path: string }[] })
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="sm:hidden bg-white text-blue-900 shadow-md">
+        <div className="sm:hidden bg-white text-green-800 shadow-md">
           <div className="flex flex-col items-start px-4 py-2 space-y-2">
             {links.map(({ label, path }) => (
               <Link
@@ -83,7 +93,7 @@ export function TabMenu({ links }: { links: { label: string; path: string }[] })
                 href={path}
                 className={`tab ${
                   pathname.startsWith(path) ? 'tab-active' : ''
-                } text-blue-900 hover:bg-blue-100 active:bg-blue-200 hover:scale-105 active:scale-95 transition-all duration-150 w-full text-left`}
+                } text-white hover:bg-green-800 active:bg-green-600 hover:scale-105 active:scale-95 transition-all duration-150 w-full text-left`}
                 onClick={() => setIsMenuOpen(false)} // Close menu when a link is clicked
               >
                 {label}

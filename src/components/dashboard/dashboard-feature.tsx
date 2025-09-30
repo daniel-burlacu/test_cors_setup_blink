@@ -8,7 +8,7 @@ export default function DashboardFeature() {
       <div className="text-center">
         {/* Gradient Big Text */}
         <motion.h1
-          className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-green-500 to-blue-700 mb-6"
+         className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-800 via-green-600 to-green-700 mb-6"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
@@ -21,9 +21,10 @@ export default function DashboardFeature() {
           className="block mx-auto w-64 md:w-80 mb-6"
           alt="Logo"
           src={logo.src}
-          initial={{ y: -10 }}
+          initial={{ y: -10, opacity: 0 }}
           animate={{
             y: [0, -10, 0], // Smooth up-and-down motion
+            opacity: [0.6, 1, 0.6], // fades in/out smoothly // stays at 80% transparent
           }}
           transition={{
             duration: 2, // Total time for one cycle
@@ -34,7 +35,7 @@ export default function DashboardFeature() {
 
         {/* Quote Text */}
         <motion.h1
-          className="text-xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-green-500 to-blue-700"
+          className="text-xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-800 via-green-600 to-green-700"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}

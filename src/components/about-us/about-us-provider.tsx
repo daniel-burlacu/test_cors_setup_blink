@@ -50,7 +50,7 @@ export const AboutUsProvider: React.FC = () => {
 
   return (
     <div>
-      <div className="min-h-screen bg-gradient-to-r  bg-gradient-to-r from-blue-500 via-green-500 to-blue-700 flex flex-col items-center justify-center py-10">
+      <div className="min-h-screen bg-gradient-to-r  bg-gradient-to-r from-green-800 via-green-600 to-green-700 flex flex-col items-center justify-center py-10">
         <motion.h1
           className="text-4xl md:text-6xl font-bold text-white mb-8"
           initial={{ opacity: 0, y: -50 }}
@@ -84,7 +84,7 @@ export const AboutUsProvider: React.FC = () => {
                           href={member.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-blue-500 hover:underline font-semibold"
+                          className="text-green-500 hover:underline font-semibold"
                         >
                           {member.name}
                         </a>
@@ -101,7 +101,7 @@ export const AboutUsProvider: React.FC = () => {
                           href={doc.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-blue-500 hover:underline font-semibold"
+                          className="text-green-500 hover:underline font-semibold"
                         >
                           {doc.name}
                         </a>

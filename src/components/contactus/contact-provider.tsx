@@ -45,7 +45,7 @@ export default function ContactProvider() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 via-green-500 to-blue-700 text-white px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-800 via-green-600 to-green-700 text-white px-4">
       <div className="w-full max-w-screen-2xl p-8">
         <div className="text-center mb-12">
           <motion.h1
@@ -112,7 +112,7 @@ export default function ContactProvider() {
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-500 via-green-500 to-blue-700 text-white font-semibold py-2 rounded-md hover:scale-105 transition-all duration-150"
+              className="w-full bg-gradient-to-r from-green-800 via-green-600 to-green-700 text-white font-semibold py-2 rounded-md hover:scale-105 transition-all duration-150"
               disabled={isSending}
             >
               {isSending ? 'Sending...' : 'Submit'}
