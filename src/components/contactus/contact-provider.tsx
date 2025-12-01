@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function ContactProvider() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSending, setIsSending] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
@@ -31,14 +33,14 @@ export default function ContactProvider() {
       const data = await response.json();
 
       if (data.success) {
-        setSuccessMessage('Your message has been sent successfully!');
+        setSuccessMessage(t.contactUs.successMessage);
         setFormData({ name: '', email: '', message: '' }); // Reset form
       } else {
-        setSuccessMessage('Failed to send your message. Please try again.');
+        setSuccessMessage(t.contactUs.errorMessage);
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      setSuccessMessage('An error occurred. Please try again.');
+      setSuccessMessage(t.contactUs.networkError);
     } finally {
       setIsSending(false);
     }
@@ -54,7 +56,7 @@ export default function ContactProvider() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            Contact Us
+            {t.contactUs.title}
           </motion.h1>
         </div>
 
@@ -67,12 +69,12 @@ export default function ContactProvider() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="flex flex-col">
               <label htmlFor="name" className="font-semibold mb-2">
-                Name
+                {t.contactUs.nameLabel}
               </label>
               <input
                 id="name"
                 type="text"
-                placeholder="Enter your name"
+                placeholder={t.contactUs.namePlaceholder}
                 className="border border-gray-300 rounded-md p-2"
                 value={formData.name}
                 onChange={handleChange}
@@ -82,12 +84,12 @@ export default function ContactProvider() {
 
             <div className="flex flex-col">
               <label htmlFor="email" className="font-semibold mb-2">
-                Email
+                {t.contactUs.emailLabel}
               </label>
               <input
                 id="email"
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t.contactUs.emailPlaceholder}
                 className="border border-gray-300 rounded-md p-2"
                 value={formData.email}
                 onChange={handleChange}
@@ -97,12 +99,12 @@ export default function ContactProvider() {
 
             <div className="flex flex-col">
               <label htmlFor="message" className="font-semibold mb-2">
-                Message
+                {t.contactUs.messageLabel}
               </label>
               <textarea
                 id="message"
                 rows={5}
-                placeholder="Write your message"
+                placeholder={t.contactUs.messagePlaceholder}
                 className="border border-gray-300 rounded-md p-2"
                 value={formData.message}
                 onChange={handleChange}
@@ -115,7 +117,7 @@ export default function ContactProvider() {
               className="w-full bg-gradient-to-r from-green-800 via-green-600 to-green-700 text-white font-semibold py-2 rounded-md hover:scale-105 transition-all duration-150"
               disabled={isSending}
             >
-              {isSending ? 'Sending...' : 'Submit'}
+              {isSending ? t.contactUs.sendingButton : t.contactUs.submitButton}
             </button>
           </form>
           {successMessage && (

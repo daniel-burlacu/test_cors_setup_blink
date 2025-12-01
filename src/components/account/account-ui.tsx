@@ -8,6 +8,8 @@ import { useMemo, useState } from 'react'
 import { AppModal, ellipsify } from '../ui/ui-layout'
 import { useCluster } from '../cluster/cluster-data-access'
 import { ExplorerLink } from '../cluster/cluster-ui'
+import { motion } from 'framer-motion'
+import { useLanguage } from '@/contexts/LanguageContext'
 import {
   useGetBalance,
   useGetSignatures,
@@ -15,10 +17,10 @@ import {
   useRequestAirdrop,
   useTransferSol,
 } from './account-data-access'
-import { motion } from 'framer-motion'
 
 export function AccountBalance({ address }: { address: PublicKey }) {
   const query = useGetBalance({ address })
+  const { t } = useLanguage();
 
   return (
     <div>
@@ -28,7 +30,7 @@ export function AccountBalance({ address }: { address: PublicKey }) {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1 }}
               >
-              Donated till now
+              {t.donate.donatedTillNow}
               </motion.h1>
       <h1 className="text-5xl font-bold cursor-pointer" onClick={() => query.refetch()}>
         {query.data ? <BalanceSol balance={query.data} /> : '...'} SOL

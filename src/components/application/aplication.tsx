@@ -16,11 +16,13 @@ import PetsIcon from "@mui/icons-material/Pets";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import CampaignIcon from "@mui/icons-material/Campaign";
 import { motion } from "framer-motion";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const highlight = { color: "#038e3dff" }; // Solana purple highlight
 const cardBg = { bgcolor: "#f9f9f9", borderRadius: 2 }; // light cards
 
 export default function InvestorPresentation() {
+  const { t } = useLanguage();
   return (
     <Box sx={{ bgcolor: "#fff", color: "#111", py: 6, minHeight: "100vh" }}>
       <Container maxWidth="lg">
@@ -47,7 +49,7 @@ export default function InvestorPresentation() {
               "&:hover": { bgcolor: "#058d50ff" },
             }}
           >
-            🚀 View Demo Application
+            {t.application.viewDemo}
           </Button>
         </motion.div>
 
@@ -58,34 +60,34 @@ export default function InvestorPresentation() {
           transition={{ duration: 0.8 }}
         >
           <Typography variant="h3" gutterBottom sx={{ fontWeight: "bold" }}>
-          <span style={highlight}>ANIVERA</span>
+          <span style={highlight}>{t.general.brandName}</span>
           </Typography>
           <Typography variant="h6" color="text.secondary" paragraph>
-            Revolutionizing veterinary & animal health data
+            {t.application.subtitle}
           </Typography>
         </motion.div>
 
         {/* Business Model */}
         <Box sx={{ mt: 6 }}>
           <Typography variant="h4" gutterBottom>
-            Business Model
+            {t.application.businessModel}
           </Typography>
           <Grid container spacing={4}>
             {[
               {
                 icon: <PetsIcon sx={{ fontSize: 40, color: "#ee04eaff" }} />,
-                title: "Clinics & Shelters",
-                text: "Free access, maximum adoption.",
+                title: t.application.clinicsTitle,
+                text: t.application.clinicsText,
               },
               {
                 icon: <AccountBalanceIcon sx={{ fontSize: 40, color: "#14f195" }} />,
-                title: "Pharma / Insurance",
-                text: "Annual subscriptions (€25k–€50k per year).",
+                title: t.application.pharmaTitle,
+                text: t.application.pharmaText,
               },
               {
                 icon: <CampaignIcon sx={{ fontSize: 40, color: "#ff9800" }} />,
-                title: "Campaigns",
-                text: "Sponsored sales campaigns (€5k–€20k each).",
+                title: t.application.campaignsTitle,
+                text: t.application.campaignsText,
               },
             ].map((item, idx) => (
               <Grid item xs={12} md={4} key={idx} display="flex">
@@ -176,11 +178,10 @@ export default function InvestorPresentation() {
           >
             <ShowChartIcon sx={{ fontSize: 60, color: "#14f195" }} />
             <Typography variant="h4" gutterBottom sx={{ mt: 2 }}>
-              Join Us on the Journey
+              {t.application.joinJourney}
             </Typography>
             <Typography variant="h6" color="text.secondary" paragraph>
-              Building the global animal health data backbone, free for clinics,
-              valuable for industries, life-changing for pets.
+              {t.application.journeyDescription}
             </Typography>
             <Stack direction="row" spacing={2} justifyContent="center">
               {/* <Button
@@ -196,7 +197,7 @@ export default function InvestorPresentation() {
                 variant="outlined"
                 sx={{ borderColor: "#14f195", color: "#14f195" }}
               >
-                Contact Us
+                {t.application.contactUs}
               </Button>
             </Stack>
           </motion.div>

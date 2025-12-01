@@ -1,48 +1,46 @@
+'use client';
 import { motion } from "framer-motion";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export const AboutUsProvider: React.FC = () => {
+  const { t } = useLanguage();
   const projectSections = [
     {
-      title: 'Project Description',
-      description:
-        'This project was born as part of the Turbin3 cohort, a program dedicated to advancing innovative Solana-based solutions. Our mission is to revolutionize how veterinary cabinets manage pet-related data by leveraging blockchain technology for transparency, security, and efficiency. With a focus on innovation and collaboration, this initiative strives to create seamless data-sharing solutions that are free and scalable.',
+      title: t.aboutUs.projectDescriptionTitle,
+      description: t.aboutUs.projectDescriptionText,
       icon: '🌍',
     },
     {
-      title: 'The Visionaries',
-      description: 'Meet the people driving this project forward.',
+      title: t.aboutUs.visionariesTitle,
+      description: t.aboutUs.visionariesDescription,
       icon: '👥',
       teamMembers: [
         {
           name: 'Ioana Irina',
           link: 'https://www.linkedin.com/in/ioanairina/',
-          description:
-            'Ioana holds a PhD in Marketing and brings over a decade of experience in technology and leadership, thriving where marketing and technology meet. She is passionate about building high-performing teams, empowering people to grow, and driving innovation. What motivates her most is turning insight into action — translating market complexity into opportunities for growth in fast-moving industries. A lifelong animal lover, Ioana grew up on her parents’ farm in the Carpathian Mountains, where her connection to nature and animals deepened. Today, she is the proud mom of a spirited Vizsla who happily takes up most of her free time.',
+          description: t.aboutUs.ioanaDescription,
         },
         {
           name: 'Daniel Burlacu',
           link: 'https://www.linkedin.com/in/daniel-burlacu-3879a689/',
-          description:
-            'Daniel is a Senior Fullstack Developer with more than 11 years of experience designing and delivering high-performance Web2 applications. Skilled across multiple programming languages and backend technologies, he is now exploring Web3 innovations to build scalable, future-ready solutions. A lifelong admirer of nature and animals, Daniel’s bond with his dog over the past decade has deepened his appreciation for the unique connection between humans and pets.',
+          description: t.aboutUs.danielDescription,
         },
       ],
     },
     {
-      title: 'Documentation',
-      description: 'Explore in-depth details about the project and its architecture.',
+      title: t.aboutUs.documentationTitle,
+      description: t.aboutUs.documentationDescription,
       icon: '📚',
       documentation: [
         {
-          name: 'Full Project Description (PDF)',
-          link: '/documentation/ProjectPlan.pdf', // Relative path for the PDF file
-          description:
-            'An overview of the Anivera, showcasing how blockchain empowers animal welfare and ecological impact.',
+          name: t.aboutUs.fullProjectDescription,
+          link: '/documentation/ProjectPlan.pdf',
+          description: t.aboutUs.fullProjectDescriptionText,
         },
         {
-          name: 'System Architecture (Draw.IO)',
-          link: '/documentation/SolanaArkFoundationDiagram.drawio', // Relative path for the Draw.IO file
-          description:
-            'A detailed architecture diagram illustrating how the system is designed and operates.',
+          name: t.aboutUs.systemArchitecture,
+          link: '/documentation/SolanaArkFoundationDiagram.drawio',
+          description: t.aboutUs.systemArchitectureText,
         },
       ],
     }
@@ -57,7 +55,7 @@ export const AboutUsProvider: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          About Us
+          {t.aboutUs.title}
         </motion.h1>
 
         <div className="w-full max-w-4xl">

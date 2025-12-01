@@ -1,30 +1,29 @@
+'use client';
 import { AppHero } from '../ui/ui-layout'
 import { motion } from 'framer-motion'
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export const RoadMapProvider: React.FC = () => {
+  const { t } = useLanguage();
   const roadmapSteps = [
     {
-      title: 'Pilot Application - we are here !',
-      description:
-        'Launch a simplified Web3 application for veterinary cabinets to test adding data to the blockchain.',
+      title: t.roadmap.step1Title,
+      description: t.roadmap.step1Description,
       icon: '🚀',
     },
     {
-      title: 'Fundraising Stage',
-      description:
-        'Raise funds to support the full-scale development of the project.',
+      title: t.roadmap.step2Title,
+      description: t.roadmap.step2Description,
       icon: '💰',
     },
     {
-      title: 'DAO Integration',
-      description:
-        'Introduce DAO governance functionality for decentralized decision-making.',
+      title: t.roadmap.step3Title,
+      description: t.roadmap.step3Description,
       icon: '🤝',
     },
     {
-      title: 'Full Application Launch',
-      description:
-        'Deploy the complete application with all features for veterinary cabinets and stakeholders.',
+      title: t.roadmap.step4Title,
+      description: t.roadmap.step4Description,
       icon: '🎉',
     },
   ];
@@ -37,7 +36,7 @@ export const RoadMapProvider: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        Roadmap
+        {t.roadmap.title}
       </motion.h1>
 
       <div className="w-full max-w-4xl">

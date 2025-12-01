@@ -4,24 +4,15 @@ import {SolanaProvider} from '@/components/solana/solana-provider'
 // import { DonateProvider} from '@/components/donate/donate-provider'
 import {UiLayout} from '@/components/ui/ui-layout'
 import {ReactQueryProvider} from './react-query-provider'
+import {LanguageProvider} from '@/contexts/LanguageContext'
 
 export const metadata = {
-  title: 'Solana Ark Foundation',
+  title: 'Anivera',
   description: 'Created by Daniel Burlacu',
+  icons: {
+    icon: '/SAFLogo.png',
+  },
 }
-
-const links: { label: string; path: string }[] = [
-  // { label: 'Top-Donations', path: '/account' },
-  // { label: 'Clusters', path: '/clusters' },
-  { label: 'Home', path: '/home' }, // Add this
-  { label: 'Donate', path: '/donate' }, // Add this
-  { label: 'Project', path: '/project' }, // Add this
-  { label: 'Road-Map', path: '/roadmap' }, // Add this
-  { label: 'About-Us', path: '/aboutus' }, // Add this
-  { label: 'Architecture', path: '/architecture' }, // Add this
-  { label: 'Application-Demo', path: '/application' }, // Add this
-  { label: 'Contact-Us', path: '/contactus' }, // Add this
-]
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -30,7 +21,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ReactQueryProvider>
           <ClusterProvider>
             <SolanaProvider>
-              <UiLayout links={links}>{children}</UiLayout>
+              <LanguageProvider>
+                <UiLayout>{children}</UiLayout>
+              </LanguageProvider>
             </SolanaProvider>
           </ClusterProvider>
         </ReactQueryProvider>

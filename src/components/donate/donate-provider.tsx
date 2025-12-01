@@ -1,12 +1,15 @@
+'use client';
 import { PublicKey } from '@solana/web3.js'
 import { BlinksSAF } from '../blink/blink'
 import { AccountBalance } from '../account/account-ui'
 import { AppHero ,ellipsify} from '../ui/ui-layout'
 import { ExplorerLink } from '../cluster/cluster-ui'
 import { motion } from 'framer-motion'
+import { useLanguage } from '@/contexts/LanguageContext';
 
 
 export const DonateProvider: React.FC = () => {
+  const { t } = useLanguage();
   const vault = process.env.NEXT_PUBLIC_VAULT_PUBLIC_KEY || '';
   if (!vault) {
   throw new Error("Missing NEXT_PUBLIC_VAULT_PUBLIC_KEY in environment variables");
@@ -33,7 +36,7 @@ export const DonateProvider: React.FC = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1 }}
               >
-               Donate and get the chance to mint a Supporter Badge NFT.
+               {t.donate.donateAndMint}
               </motion.h1>
              </div>
     </div>

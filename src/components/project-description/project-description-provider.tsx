@@ -1,83 +1,59 @@
+'use client';
 import { Typography } from '@mui/material';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export const ProjectDescriptionProvider: React.FC = () => {
+  const { t } = useLanguage();
   const projectSections = [
     {
-      title: (<Typography variant="h4" gutterBottom sx={{  fontWeight: "bold" }}> Overview </Typography>),
+      title: (<Typography variant="h4" gutterBottom sx={{  fontWeight: "bold" }}>{t.project.overview}</Typography>),
       description:
         (<><Typography paragraph sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}>
-          Our mission is to provide veterinarians with a{" "}
-          <strong>simple, secure platform</strong> to share pet health data.
+          {t.project.overviewText1}
         </Typography>
 
           <Typography paragraph sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}>
-            By bringing this knowledge together, we generate{" "}
-            <strong>insights that improve treatments</strong> and{" "}
-            <strong>advance research</strong> — always with{" "}
-            <span style={{ color: "#0a4616ff", fontWeight: "bold" }}>pets</span> at the
-            center of our purpose.
+            {t.project.overviewText2}
           </Typography>
 
           <Typography paragraph sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}>
-            We believe <strong>every pet deserves access to better care</strong>, and
-            that <span style={{ color: "#055835ff", fontWeight: "bold" }}>open,
-              collaborative data</span> is the key to making it happen.
+            {t.project.overviewText3}
           </Typography></>),
       icon: '🌍',
     },
     {
-      title: (<Typography variant="h4" gutterBottom sx={{  fontWeight: "bold" }}>Problem Statement</Typography>),
+      title: (<Typography variant="h4" gutterBottom sx={{  fontWeight: "bold" }}>{t.project.problemStatement}</Typography>),
       description:
         (
           <>
             <Typography paragraph>
-              With <strong>over a billion cats and dogs worldwide</strong> — and
-              little reliable data on other pets — the veterinary field faces a
-              critical gap. There are <strong>600,000 veterinarians globally</strong>, yet
-              most outside large clinics still rely on handwritten notes or fragmented
-              systems.
+              {t.project.problemText1}
             </Typography>
             <ul style={{ marginLeft: "1.2rem", marginBottom: "1rem" }}>
-              <li>Nearly impossible to identify <strong>breed-specific patterns</strong></li>
-              <li>Hard to track <strong>emerging diseases & wider health trends</strong></li>
-              <li>Care remains <strong>inconsistent across regions</strong></li>
+              <li>{t.project.problemBullet1}</li>
+              <li>{t.project.problemBullet2}</li>
+              <li>{t.project.problemBullet3}</li>
             </ul>
             <Typography paragraph>
-              Research today is skewed toward small, specialized populations with
-              advanced care, leaving the majority of pets <strong>underrepresented and underserved</strong>.
+              {t.project.problemText2}
             </Typography>
             <Typography>
-              👉 Our platform makes digital case logging effortless — creating both a
-              <strong> reliable medical history for each pet</strong> and a{" "}
-              <strong>global dataset</strong> that empowers better treatment
-              decisions, stronger justifications for care, and{" "}
-              <strong>healthier pets worldwide</strong>.
+              {t.project.problemText3}
             </Typography>
           </>
         ),
       icon: '⚠️',
     },
     {
-      title: (<Typography variant="h4" gutterBottom sx={{fontWeight: "bold" }}>Our Solution</Typography>),
+      title: (<Typography variant="h4" gutterBottom sx={{fontWeight: "bold" }}>{t.project.ourSolution}</Typography>),
       description:
         (<><Typography paragraph sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}>
-          <strong>Veterinarians</strong> together with <strong>Animal Care Shelters</strong> securely enter{" "}
-          <strong>anonymized case data</strong>, which our platform aggregates in full{" "}
-          <span style={{ color: "#0a4616ff", fontWeight: "bold" }}>
-            GDPR / AVG compliance
-          </span>
-          .
+          {t.project.solutionText1}
         </Typography>
 
           <Typography paragraph sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}>
-            This creates <strong>trusted insights and trends</strong> that empower
-            veterinarians to deliver{" "}
-            <span style={{ color: "#055835ff", fontWeight: "bold" }}>
-              better treatments
-            </span>{" "}
-            and ensure{" "}
-            <strong>healthier pets worldwide</strong>.
+            {t.project.solutionText2}
           </Typography></>),
       icon: '💡',
     },
@@ -104,23 +80,23 @@ export const ProjectDescriptionProvider: React.FC = () => {
 
     },
     {
-      title: (<Typography variant="h4" gutterBottom sx={{fontWeight: "bold" }}>Key Features</Typography>),
+      title: (<Typography variant="h4" gutterBottom sx={{fontWeight: "bold" }}>{t.project.keyFeatures}</Typography>),
       description:
         (<Typography paragraph sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}>
           <ul style={{ marginLeft: "1.2rem", marginBottom: "1rem" }}>
-          <li>- Blockchain-backed data storage</li>
-          <li>- Simplified pilot application for testing</li>
-          <li>- Future DAO governance for collaborative decision-making</li>
-          <li>- Transparent and secure fundraising mechanisms</li>
+          <li>- {t.project.feature1}</li>
+          <li>- {t.project.feature2}</li>
+          <li>- {t.project.feature3}</li>
+          <li>- {t.project.feature4}</li>
           </ul>
           </Typography>),
       icon: '🔑',
     },
     {
-      title: (<Typography variant="h4" gutterBottom sx={{fontWeight: "bold" }}>Future Vision</Typography>),
+      title: (<Typography variant="h4" gutterBottom sx={{fontWeight: "bold" }}>{t.project.futureVision}</Typography>),
       description:
          (<Typography paragraph sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}>
-          The long-term vision is to build a fully decentralized platform that empowers veterinary cabinets, pet owners, and other stakeholders with seamless access to secure and transparent data. Beyond this, the data inputted through our system can be leveraged to create valuable products, such as improving animal food formulations, conducting pharmaceutical studies, and tracking animal behavior using health monitoring devices. This approach opens the door to innovative solutions that enhance animal welfare and veterinary practices globally.</Typography>),
+          {t.project.futureVisionText}</Typography>),
       icon: '🚀',
     },
 
@@ -135,7 +111,7 @@ export const ProjectDescriptionProvider: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Our Mission
+          {t.general.ourMission}
         </motion.h1>
         {/* Embed YouTube Video */}
         <motion.div

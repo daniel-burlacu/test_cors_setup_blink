@@ -20,6 +20,7 @@ import {
 import {
   toWeb3JsInstruction,
 } from "@metaplex-foundation/umi-web3js-adapters";
+import { translations } from "../../../i18n/translation";
 
 // import wallet from "/home/daniel/.solana/.config/localwallet.json";
 const wallet = JSON.parse(process.env.KEY_WALLET || '[]');
@@ -50,6 +51,8 @@ import {
   getAssociatedTokenAddress,
   getOrCreateAssociatedTokenAccount,
 } from "@solana/spl-token";
+
+const t = translations.en; // Use translations.es for Spanish
   
   let transactionCompleted = false; // Global boolean state
   
@@ -62,14 +65,14 @@ import {
     const responseBody: ActionGetResponse = transactionCompleted
       ? {
           icon: "https://devnet.irys.xyz/FRK2U41TQSv2tnKzBtuY3LkhqSM6q8GrvbQQJyvVSrut",
-          description: "Thank you for your donation! You can now mint your NFT.",
-          title: "Solana Ark Foundation Supporter",
-          label: "Mint an NFT",
+          description: t.messages.thankYou,
+          title: t.nft.title,
+          label: t.actions.mintNft,
           links: {
             actions: [
               {
                 type: "transaction",
-                label: "Mint NFT",
+                label: t.actions.mintNft,
                 href: requestUrl.origin + "/api/actions?action=mint",
               },
             ],
@@ -78,31 +81,30 @@ import {
       : {
           //icon: "https://bafybeibqfafl757oc2ts3dnyxpapq7fthx2og2kod4cd3yeysm7q6hxaxq.ipfs.flk-ipfs.xyz",
           icon: "https://devnet.irys.xyz/FRK2U41TQSv2tnKzBtuY3LkhqSM6q8GrvbQQJyvVSrut",
-          description:
-            "The time to act is now! ... before their silence becomes our legacy.",
-          title: "Solana Ark Foundation Supporter",
-          label: "Make a donation",
+          description: t.general.tagline,
+          title: t.nft.supporterTitle,
+          label: t.actions.donate,
           links: {
             actions: [
               {
                 type: "transaction",
-                label: "Donate 0.5 Sol",
+                label: t.actions.donate05,
                 href: requestUrl.origin + "/api/actions?action=donate0.5",
               },
               {
                 type: "transaction",
-                label: "Donate 1 Sol",
+                label: t.actions.donate1,
                 href: requestUrl.origin + "/api/actions?action=donate1",
               },
               {
                 type: "transaction",
-                label: "Donate Sol",
+                label: t.actions.donateSol,
                 href:
                   requestUrl.origin + "/api/actions?action=donate&amount=0.0001",
                 parameters: [
                   {
                     name: "amount",
-                    label: "Enter the amount of SOL to donate",
+                    label: t.actions.enterAmount,
                     required: true,
                   },
                 ],
@@ -130,7 +132,7 @@ import {
     try {
       userPubkey = new PublicKey(requestBody.account);
     } catch (err) {
-      return new Response('Invalid "account" provided', {
+      return new Response(t.messages.invalidAccount, {
         status: 400,
         headers: ACTIONS_CORS_HEADERS,
       });
@@ -174,8 +176,8 @@ import {
   
     // Step 3: Create the NFT
     const nftBuilder = createNft(umi, {
-      name: "SAF Supporter Badge",
-      symbol: "SAF",
+      name: t.nft.name,
+      symbol: t.nft.symbol,
       uri: "https://devnet.irys.xyz/ERXUytdJNnNGXHkTFbKBMaHe6dQbTE36cuXtgCxw2fgy",
       mint,
       sellerFeeBasisPoints: percentAmount(0, 2),
@@ -219,22 +221,22 @@ import {
            const responseBody: ActionPostResponse = {
           type: "transaction",
           transaction: serializedTx,
-          message: "Donation successful ! You can now proceed to mint your NFT Supporter Badge. Please note, transaction fees will be covered by you to complete the minting process.",
+          message: t.messages.donationSuccess,
           links: {
             next: {
               type: "inline",
               action: {
                 type: "action",
                 icon: "https://devnet.irys.xyz/ERXUytdJNnNGXHkTFbKBMaHe6dQbTE36cuXtgCxw2fgy",
-                label: "Mint NFT",
-                title: "Mint SAF Supporter Badge NFT",
+                label: t.actions.mintNft,
+                title: t.nft.mintTitle,
                 disabled: false,
-                description: "Mint your Solana Ark Foundation Supporter Badge.",
+                description: t.nft.badgeDescription,
                 links: {
                   actions: [
                     {
                       type: "transaction",
-                      label: "Mint NFT",
+                      label: t.actions.mintNft,
                       href: url.origin + "/api/actions?action=mint",
                     },
                   ],
@@ -336,22 +338,22 @@ import {
        const responseBody: ActionPostResponse = {
             type: "transaction",
             transaction: serializedTxFee,
-            message: "NFT Minted successfuly!",
+            message: t.messages.nftMintedSuccess,
             links: {
               next: {
                 type: "inline",
                 action: {
                   type: "action",
                   icon: "https://devnet.irys.xyz/GdwTMKz2aXVohdzU6nsC9pHDCm7FJ8kdZdYHoU1LoJSF",
-                  label: "NFT Minted completed !",
-                  title: "NFT Minted Successfully !",
+                  label: t.nft.nftMintedLabel,
+                  title: t.nft.nftMintedTitle,
                   disabled: false,
-                  description: "You can now proceed to transfer the NFT to your wallet. Transfer is free of charge, transaction fees are on us !",
+                  description: t.messages.transferComplete,
                   links: {
                     actions: [
                       {
                         type: "transaction",
-                        label: "Transfer NFT !",
+                        label: t.actions.transferNft,
                         href: "/api/actions?action=feePayed",
                       },
                     ],
@@ -398,7 +400,7 @@ import {
         console.error("Minting error: ", error);
         return new Response(
           JSON.stringify({
-            error: "Minting error",
+            error: t.messages.mintingError,
             details: error instanceof Error ? error.message : "Unknown error",
           }),
           { status: 500, headers: ACTIONS_CORS_HEADERS }
@@ -407,7 +409,7 @@ import {
     } else if(action ===  "feePayed"){
       let response = ({
         type: 'post',
-        message:'Thank you for your donation! You can now check your wallet.',
+        message: t.messages.checkWallet,
       } satisfies ActionPostResponse);
 
       console.log("Executing the rest of the transaction !");

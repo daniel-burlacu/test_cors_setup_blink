@@ -4,8 +4,22 @@ import {ReactNode, Suspense, useEffect, useRef} from 'react'
 import toast, {Toaster} from 'react-hot-toast'
 import { ExplorerLink} from '../cluster/cluster-ui'
 import { TabMenu } from '@/components/ui/tab-menu';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-export function UiLayout({ children, links }: { children: ReactNode; links: { label: string; path: string }[] }) {
+export function UiLayout({ children }: { children: ReactNode }) {
+  const { t } = useLanguage();
+  
+  const links = [
+    { label: t.nav.home, path: '/home' },
+    { label: t.nav.donate, path: '/donate' },
+    { label: t.nav.project, path: '/project' },
+    { label: t.nav.roadmap, path: '/roadmap' },
+    { label: t.nav.aboutUs, path: '/aboutus' },
+    { label: t.nav.architecture, path: '/architecture' },
+    { label: t.nav.applicationDemo, path: '/application' },
+    { label: t.nav.contactUs, path: '/contactus' },
+  ];
+
   return (
     <div className="h-full flex flex-col">
       {/* Fixed TabMenu */}

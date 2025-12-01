@@ -7,6 +7,7 @@ import { WalletButton } from '../solana/solana-provider';
 import { ClusterUiSelect } from '../cluster/cluster-ui';
 import { motion } from 'framer-motion';
 import logo from '../../../public/SAFLogo.png';
+import { LanguageSwitcher, LanguageSwitcherMobile } from './language-switcher';
 
 export function TabMenu({ links }: { links: { label: string; path: string }[] }) {
   const pathname = usePathname();
@@ -36,6 +37,7 @@ export function TabMenu({ links }: { links: { label: string; path: string }[] })
 
         {/* WalletButton and ClusterUiSelect for smaller screens */}
         <div className="flex items-center space-x-2 sm:hidden">
+          <LanguageSwitcherMobile />
           <WalletButton />
           <ClusterUiSelect />
         </div>
@@ -78,6 +80,7 @@ export function TabMenu({ links }: { links: { label: string; path: string }[] })
 
         {/* WalletButton and ClusterUiSelect for Desktop */}
         <div className="hidden sm:flex items-center space-x-2">
+          <LanguageSwitcher />
           <WalletButton />
           <ClusterUiSelect />
         </div>

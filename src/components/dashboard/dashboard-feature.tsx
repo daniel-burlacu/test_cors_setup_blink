@@ -1,10 +1,14 @@
 'use client';
 import { motion } from 'framer-motion';
 import logo from '../../../public/SAFLogo.png';
+import modepranLogo from '../../../public/modepran.jpg';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function DashboardFeature() {
+  const { t } = useLanguage();
+  
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-white">
+    <div className="flex flex-col items-center justify-center h-screen bg-white relative">
       <div className="text-center">
         {/* Gradient Big Text */}
         <motion.h1
@@ -13,7 +17,7 @@ export default function DashboardFeature() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
         >
-          ANIVERA
+          {t.general.brandName}
         </motion.h1>
 
         {/* Animated Logo */}
@@ -40,9 +44,38 @@ export default function DashboardFeature() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
         >
-          "The time to act is now, before their silence becomes our legacy."
+          "{t.general.tagline}"
         </motion.h1>
       </div>
+
+      {/* Modepran Partnership Box - Rotated 45 degrees */}
+      <motion.div
+        className="absolute top-48 -left-32 md:top-56 md:-left-28"
+        initial={{ opacity: 0, rotate: 0 }}
+        animate={{ opacity: 1, rotate: 45 }}
+        transition={{ duration: 1, delay: 0.5 }}
+        style={{ transformOrigin: 'center' }}
+      >
+        <div className="bg-white rounded-2xl shadow-2xl p-6 w-64 h-64 border-2 border-green-600 flex flex-col items-center justify-center">
+          <div style={{ transform: 'rotate(-45deg)' }} className="flex flex-col items-center">
+            <a
+              href="https://www.protectoramodepran.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block mb-3"
+            >
+              <img
+                src={modepranLogo.src}
+                alt="Modepran Valencia"
+                className="w-24 h-24 object-contain mx-auto rounded-xl hover:scale-110 transition-transform duration-300"
+              />
+            </a>
+            <p className="text-xs text-gray-700 text-center leading-tight px-2">
+              {t.general.partnershipText}
+            </p>
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 }
