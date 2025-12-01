@@ -32,7 +32,7 @@ export default function InvestorPresentation() {
           style={{ textAlign: "right", marginBottom: "20px" }}
         >
           <Button
-            href="https://saf-frontend-delta.vercel.app/"
+            href="https://develop.d1ir61rx2rh3k4.amplifyapp.com/"
             target="_blank"
             rel="noopener noreferrer"
             variant="contained"
@@ -58,7 +58,7 @@ export default function InvestorPresentation() {
           transition={{ duration: 0.8 }}
         >
           <Typography variant="h3" gutterBottom sx={{ fontWeight: "bold" }}>
-            The <span style={highlight}>Solana Ark Foundation</span>
+          <span style={highlight}>ANIVERA</span>
           </Typography>
           <Typography variant="h6" color="text.secondary" paragraph>
             Revolutionizing veterinary & animal health data
