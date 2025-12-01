@@ -36,7 +36,7 @@ export const AboutUsProvider: React.FC = () => {
           name: 'Full Project Description (PDF)',
           link: '/documentation/ProjectPlan.pdf', // Relative path for the PDF file
           description:
-            'An overview of the Solana Ark Foundation, showcasing how blockchain empowers animal welfare and ecological impact.',
+            'An overview of the Anivera, showcasing how blockchain empowers animal welfare and ecological impact.',
         },
         {
           name: 'System Architecture (Draw.IO)',

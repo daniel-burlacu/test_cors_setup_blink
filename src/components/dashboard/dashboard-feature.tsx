@@ -13,7 +13,7 @@ export default function DashboardFeature() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
         >
-          SOLANA ARK FOUNDATION
+          ANIVERA
         </motion.h1>
 
         {/* Animated Logo */}
