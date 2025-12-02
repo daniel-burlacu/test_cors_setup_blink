@@ -50,7 +50,7 @@ export const translations = {
     general: {
       tagline: "The time to act is now, before their silence becomes our legacy.",
       brandName: "ANIVERA",
-      partnershipText: "We are building the first animal-health intelligence hub. Modepran Valencia is now collaborating with us as our first pilot shelter.",
+      partnershipText: "Collaborators:",
       ourMission: "Our Mission",
       bedrockTitle: "Powered by AWS Bedrock",
       bedrockText: "Leveraging cutting-edge AI technology to revolutionize animal health insights.",
@@ -218,9 +218,9 @@ export const translations = {
 
     // General
     general: {
-      tagline: "Es hora de actuar ahora, antes de que su silencio se convierta en nuestro legado.",
+      tagline: "El momento de actuar es ahora, antes de que su silencio se convierta en nuestro legado.",
       brandName: "ANIVERA",
-      partnershipText: "Estamos construyendo el primer centro de inteligencia de salud animal. Modepran Valencia ahora está colaborando con nosotros como nuestro primer refugio piloto.",
+      partnershipText: "Colaboradores:",
       ourMission: "Nuestra Misión",
       bedrockTitle: "Impulsado por AWS Bedrock",
       bedrockText: "Aprovechando tecnología de IA de vanguardia para revolucionar los conocimientos de salud animal.",

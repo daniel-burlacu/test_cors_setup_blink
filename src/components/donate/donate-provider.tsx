@@ -16,7 +16,7 @@ export const DonateProvider: React.FC = () => {
 }
   const address = new PublicKey(vault);
   return (
-    <div>
+    <div className="px-4 sm:px-6 lg:px-8">
         <AppHero
               title={<AccountBalance address={address} />}
               subtitle={
@@ -29,9 +29,9 @@ export const DonateProvider: React.FC = () => {
          
       <BlinksSAF />
              {/* Quote Text */}
-             <div className="max-w-xl mx-auto py-6 sm:px-6 lg:px-8 text-center">
+             <div className="max-w-xl mx-auto py-4 sm:py-6 px-4 sm:px-6 lg:px-8 text-center">
              <motion.h1
-                className="text-xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-500 via-green-600 to-green-700"
+                className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-500 via-green-600 to-green-700"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1 }}

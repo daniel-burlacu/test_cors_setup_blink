@@ -104,9 +104,9 @@ export const ProjectDescriptionProvider: React.FC = () => {
 
   return (
     <div>
-      <div className="min-h-screen bg-gradient-to-r  bg-gradient-to-r from-green-800 via-green-600 to-green-700 flex flex-col items-center justify-center py-10">
+      <div className="min-h-screen bg-gradient-to-r from-green-800 via-green-600 to-green-700 flex flex-col items-center justify-center py-6 sm:py-10 px-4 sm:px-6">
         <motion.h1
-          className="text-4xl md:text-6xl font-bold text-white mb-8"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 sm:mb-8 text-center"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -115,8 +115,8 @@ export const ProjectDescriptionProvider: React.FC = () => {
         </motion.h1>
         {/* Embed YouTube Video */}
         <motion.div
-          className="w-full max-w-5xl aspect-w-4 aspect-h-3 mb-10" // Increase max width and adjust aspect ratio
-          style={{ height: '500px' }} // Explicitly set a larger height
+          className="w-full max-w-5xl mb-6 sm:mb-10 px-2 sm:px-4"
+          style={{ height: 'auto', aspectRatio: '16/9' }}
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
@@ -128,25 +128,26 @@ export const ProjectDescriptionProvider: React.FC = () => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className="w-full h-full rounded-lg shadow-lg"
+            style={{ minHeight: '200px', maxHeight: '500px', height: '100%' }}
           ></iframe>
         </motion.div>
 
 
 
-        <div className="w-full max-w-4xl">
+        <div className="w-full max-w-4xl px-2 sm:px-4">
           {projectSections.map((step, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-lg shadow-md p-6 mb-6 flex items-start space-x-4"
+              className="bg-white rounded-lg shadow-md p-4 sm:p-6 mb-4 sm:mb-6 flex flex-col sm:flex-row items-start space-y-3 sm:space-y-0 sm:space-x-4"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
-              <div className="text-4xl">{step.icon}</div>
-              <div>
+              <div className="text-3xl sm:text-4xl">{step.icon}</div>
+              <div className="flex-1">
                 {step.title}
-                <p className="text-gray-600 whitespace-pre-line">{step.description}</p>
+                <p className="text-sm sm:text-base text-gray-600 whitespace-pre-line">{step.description}</p>
               </div>
             </motion.div>
           ))}

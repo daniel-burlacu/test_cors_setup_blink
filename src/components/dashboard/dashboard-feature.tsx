@@ -9,11 +9,11 @@ export default function DashboardFeature() {
   const { t } = useLanguage();
   
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-white relative">
-      <div className="text-center">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white relative overflow-hidden px-4 py-8">
+      <div className="text-center max-w-4xl w-full">
         {/* Gradient Big Text */}
         <motion.h1
-         className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-800 via-green-600 to-green-700 mb-6"
+         className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-800 via-green-600 to-green-700 mb-4 md:mb-6"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
@@ -23,24 +23,24 @@ export default function DashboardFeature() {
 
         {/* Animated Logo */}
         <motion.img
-          className="block mx-auto w-64 md:w-80 mb-6"
+          className="block mx-auto w-48 sm:w-56 md:w-64 lg:w-72 xl:w-80 mb-4 md:mb-6"
           alt="Logo"
           src={logo.src}
           initial={{ y: -10, opacity: 0 }}
           animate={{
-            y: [0, -10, 0], // Smooth up-and-down motion
-            opacity: [0.6, 1, 0.6], // fades in/out smoothly // stays at 80% transparent
+            y: [0, -10, 0],
+            opacity: [0.6, 1, 0.6],
           }}
           transition={{
-            duration: 2, // Total time for one cycle
-            repeat: Infinity, // Repeat forever
-            ease: 'easeInOut', // Smooth easing
+            duration: 2,
+            repeat: Infinity,
+            ease: 'easeInOut',
           }}
         />
 
         {/* Quote Text */}
         <motion.h1
-          className="text-xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-800 via-green-600 to-green-700"
+          className="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-800 via-green-600 to-green-700 px-4"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
@@ -49,58 +49,58 @@ export default function DashboardFeature() {
         </motion.h1>
       </div>
 
-      {/* Modepran Partnership Box - Rotated 45 degrees */}
+      {/* Modepran Partnership Box - Responsive positioning */}
       <motion.div
-        className="absolute top-48 -left-32 md:top-56 md:-left-28"
+        className="hidden sm:block absolute top-8 left-4 sm:left-8 md:left-12 lg:left-16"
         initial={{ opacity: 0, rotate: 0 }}
         animate={{ opacity: 1, rotate: 45 }}
         transition={{ duration: 1, delay: 0.5 }}
         style={{ transformOrigin: 'center' }}
       >
-        <div className="bg-white rounded-2xl shadow-2xl p-6 w-64 h-64 border-2 border-green-600 flex flex-col items-center justify-center">
+        <div className="bg-white rounded-2xl shadow-2xl p-3 sm:p-4 w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 border-2 border-green-600 flex flex-col items-center justify-center">
           <div style={{ transform: 'rotate(-45deg)' }} className="flex flex-col items-center">
             <a
               href="https://www.protectoramodepran.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="block mb-3"
+              className="block mb-1 sm:mb-2"
             >
               <img
                 src={modepranLogo.src}
                 alt="Modepran Valencia"
-                className="w-24 h-24 object-contain mx-auto rounded-xl hover:scale-110 transition-transform duration-300"
+                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain mx-auto rounded-xl hover:scale-110 transition-transform duration-300"
               />
             </a>
-            <p className="text-xs text-gray-700 text-center leading-tight px-2">
+            <p className="text-[8px] sm:text-[9px] text-gray-700 text-center leading-tight px-1">
               {t.general.partnershipText}
             </p>
           </div>
         </div>
       </motion.div>
 
-      {/* Turbin3 Box - Rotated 45 degrees on the right side */}
+      {/* Turbin3 Box - Responsive positioning */}
       <motion.div
-        className="absolute top-48 -right-32 md:top-56 md:-right-28"
+        className="hidden sm:block absolute top-8 right-4 sm:right-8 md:right-12 lg:right-16"
         initial={{ opacity: 0, rotate: 0 }}
         animate={{ opacity: 1, rotate: 45 }}
         transition={{ duration: 1, delay: 0.7 }}
         style={{ transformOrigin: 'center' }}
       >
-        <div className="bg-white rounded-2xl shadow-2xl p-6 w-64 h-64 border-2 border-green-600 flex flex-col items-center justify-center">
+        <div className="bg-white rounded-2xl shadow-2xl p-3 sm:p-4 w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 border-2 border-green-600 flex flex-col items-center justify-center">
           <div style={{ transform: 'rotate(-45deg)' }} className="flex flex-col items-center">
             <a
               href="https://www.turbin3.org/"
               target="_blank"
               rel="noopener noreferrer"
-              className="block mb-3"
+              className="block mb-1 sm:mb-2"
             >
               <img
                 src={turbineLogo.src}
                 alt="Turbin3"
-                className="w-24 h-24 object-contain mx-auto rounded-xl hover:scale-110 transition-transform duration-300"
+                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain mx-auto rounded-xl hover:scale-110 transition-transform duration-300"
               />
             </a>
-            <p className="text-xs text-gray-700 text-center leading-tight px-2 font-semibold">
+            <p className="text-[8px] sm:text-[9px] text-gray-700 text-center leading-tight px-1 font-semibold">
               {t.general.turbineText}
             </p>
           </div>

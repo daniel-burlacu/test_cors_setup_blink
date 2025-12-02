@@ -26,27 +26,54 @@ const cardBg = { bgcolor: "#f9f9f9", borderRadius: 2 }; // light cards
 export default function InvestorPresentation() {
   const { t } = useLanguage();
   return (
-    <Box sx={{ bgcolor: "#fff", color: "#111", py: 6, minHeight: "100vh" }}>
+    <Box sx={{ bgcolor: "#fff", color: "#111", py: { xs: 3, sm: 4, md: 6 }, minHeight: "100vh", px: { xs: 2, sm: 3 } }}>
       <Container maxWidth="lg">
         {/* Demo Application Link and Technology Boxes */}
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 4 }}>
+        <Box sx={{ 
+          display: 'flex', 
+          flexDirection: { xs: 'column', md: 'row' },
+          justifyContent: 'space-between', 
+          alignItems: { xs: 'center', md: 'flex-start' }, 
+          mb: 4,
+          gap: { xs: 3, md: 0 }
+        }}>
           {/* Title on the left */}
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            style={{ flex: 1 }}
+            style={{ flex: 1, textAlign: 'center', width: '100%' }}
           >
-            <Typography variant="h3" gutterBottom sx={{ fontWeight: "bold" }}>
+            <Typography 
+              variant="h3" 
+              gutterBottom 
+              sx={{ 
+                fontWeight: "bold",
+                fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.75rem', lg: '3rem' }
+              }}
+            >
               <span style={highlight}>{t.general.brandName}</span>
             </Typography>
-            <Typography variant="h6" color="text.secondary" paragraph>
+            <Typography 
+              variant="h6" 
+              color="text.secondary" 
+              paragraph
+              sx={{ 
+                fontSize: { xs: '0.875rem', sm: '1rem', md: '1.125rem', lg: '1.25rem' }
+              }}
+            >
               {t.application.subtitle}
             </Typography>
           </motion.div>
 
           {/* Right side with button and boxes */}
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6 }}>
+          <Box sx={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: { xs: 'center', md: 'flex-end' }, 
+            gap: { xs: 3, md: 6 },
+            width: { xs: '100%', md: 'auto' }
+          }}>
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -63,8 +90,9 @@ export default function InvestorPresentation() {
                   textTransform: "none",
                   fontWeight: "bold",
                   borderRadius: "8px",
-                  px: 3,
+                  px: { xs: 2, sm: 3 },
                   py: 1,
+                  fontSize: { xs: '0.875rem', sm: '1rem' },
                   "&:hover": { bgcolor: "#058d50ff" },
                 }}
               >
@@ -73,7 +101,14 @@ export default function InvestorPresentation() {
             </motion.div>
 
             {/* Technology Boxes */}
-            <Box sx={{ display: 'flex', gap: 4, mt: 2 }}>
+            <Box sx={{ 
+              display: 'flex', 
+              flexDirection: { xs: 'column', sm: 'row' },
+              gap: { xs: 3, sm: 4 }, 
+              mt: 2,
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
               {/* Blockchain Technology Box */}
               <motion.div
                 initial={{ opacity: 0, rotate: 0 }}
@@ -93,23 +128,23 @@ export default function InvestorPresentation() {
                     bgcolor: 'white',
                     border: '2px solid #16a34a',
                     borderRadius: 2,
-                    width: 180,
-                    height: 180,
+                    width: { xs: 140, sm: 160, md: 180 },
+                    height: { xs: 140, sm: 160, md: 180 },
                     textDecoration: 'none',
                     transition: 'transform 0.3s',
                     '&:hover': { transform: 'rotate(45deg) scale(1.05)' }
                   }}
                 >
-                  <Box sx={{ transform: 'rotate(-45deg)', textAlign: 'center', p: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                  <Box sx={{ transform: 'rotate(-45deg)', textAlign: 'center', p: { xs: 1.5, sm: 2 }, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                     <img
                       src={blockchainLogo.src}
                       alt="Blockchain Technology"
-                      style={{ width: 50, height: 50, marginBottom: 8, objectFit: 'contain' }}
+                      style={{ width: '40px', height: '40px', marginBottom: '6px', objectFit: 'contain' }}
                     />
-                    <Typography variant="caption" display="block" sx={{ fontWeight: 'bold', color: '#9333ea', mb: 0.5, fontSize: '0.7rem' }}>
+                    <Typography variant="caption" display="block" sx={{ fontWeight: 'bold', color: '#9333ea', mb: 0.5, fontSize: { xs: '0.6rem', sm: '0.65rem', md: '0.7rem' } }}>
                       {t.general.blockchainTitle}
                     </Typography>
-                    <Typography variant="caption" display="block" sx={{ fontSize: '0.6rem', color: '#666', lineHeight: 1.3 }}>
+                    <Typography variant="caption" display="block" sx={{ fontSize: { xs: '0.55rem', sm: '0.6rem' }, color: '#666', lineHeight: 1.3 }}>
                       {t.general.blockchainText}
                     </Typography>
                   </Box>
@@ -135,23 +170,23 @@ export default function InvestorPresentation() {
                     bgcolor: 'white',
                     border: '2px solid #16a34a',
                     borderRadius: 2,
-                    width: 180,
-                    height: 180,
+                    width: { xs: 140, sm: 160, md: 180 },
+                    height: { xs: 140, sm: 160, md: 180 },
                     textDecoration: 'none',
                     transition: 'transform 0.3s',
                     '&:hover': { transform: 'rotate(45deg) scale(1.05)' }
                   }}
                 >
-                  <Box sx={{ transform: 'rotate(-45deg)', textAlign: 'center', p: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                  <Box sx={{ transform: 'rotate(-45deg)', textAlign: 'center', p: { xs: 1.5, sm: 2 }, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                     <img
                       src={bedrockLogo.src}
                       alt="AWS Bedrock"
-                      style={{ width: 50, height: 50, marginBottom: 8, objectFit: 'contain' }}
+                      style={{ width: '40px', height: '40px', marginBottom: '6px', objectFit: 'contain' }}
                     />
-                    <Typography variant="caption" display="block" sx={{ fontWeight: 'bold', color: '#f97316', mb: 0.5, fontSize: '0.7rem' }}>
+                    <Typography variant="caption" display="block" sx={{ fontWeight: 'bold', color: '#f97316', mb: 0.5, fontSize: { xs: '0.6rem', sm: '0.65rem', md: '0.7rem' } }}>
                       {t.general.bedrockTitle}
                     </Typography>
-                    <Typography variant="caption" display="block" sx={{ fontSize: '0.6rem', color: '#666', lineHeight: 1.3 }}>
+                    <Typography variant="caption" display="block" sx={{ fontSize: { xs: '0.55rem', sm: '0.6rem' }, color: '#666', lineHeight: 1.3 }}>
                       {t.general.bedrockText}
                     </Typography>
                   </Box>
@@ -162,8 +197,8 @@ export default function InvestorPresentation() {
         </Box>
 
         {/* Business Model */}
-        <Box sx={{ mt: 6 }}>
-          <Typography variant="h4" gutterBottom>
+        <Box sx={{ mt: { xs: 4, md: 6 } }}>
+          <Typography variant="h4" gutterBottom sx={{ fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem' } }}>
             {t.application.businessModel}
           </Typography>
           <Grid container spacing={4}>

@@ -47,35 +47,34 @@ export default function ContactProvider() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-800 via-green-600 to-green-700 text-white px-4">
-      <div className="w-full max-w-screen-2xl p-8">
-        <div className="text-center mb-12">
-          <motion.h1
-            className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-100"
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
+    <div>
+      <div className="min-h-screen bg-white flex flex-col items-center justify-center py-6 sm:py-10 px-4 sm:px-6">
+        <motion.h1
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-800 via-green-600 to-green-700 mb-6 sm:mb-8 text-center"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          {t.contactUs.title}
+        </motion.h1>
+
+        <div className="w-full max-w-4xl px-2 sm:px-4">
+          <motion.div
+            className="bg-gradient-to-r from-green-800 via-green-600 to-green-700 text-white rounded-lg shadow-lg p-6 sm:p-8"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
           >
-            {t.contactUs.title}
-          </motion.h1>
-        </div>
-
-        <motion.div
-          className="bg-white text-gray-800 rounded-lg shadow-lg p-8 max-w-lg mx-auto"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
             <div className="flex flex-col">
-              <label htmlFor="name" className="font-semibold mb-2">
+              <label htmlFor="name" className="font-semibold mb-2 text-sm sm:text-base">
                 {t.contactUs.nameLabel}
               </label>
               <input
                 id="name"
                 type="text"
                 placeholder={t.contactUs.namePlaceholder}
-                className="border border-gray-300 rounded-md p-2"
+                className="bg-white border border-gray-300 rounded-md p-2 sm:p-3 text-sm sm:text-base text-gray-800"
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -83,14 +82,14 @@ export default function ContactProvider() {
             </div>
 
             <div className="flex flex-col">
-              <label htmlFor="email" className="font-semibold mb-2">
+              <label htmlFor="email" className="font-semibold mb-2 text-sm sm:text-base">
                 {t.contactUs.emailLabel}
               </label>
               <input
                 id="email"
                 type="email"
                 placeholder={t.contactUs.emailPlaceholder}
-                className="border border-gray-300 rounded-md p-2"
+                className="bg-white border border-gray-300 rounded-md p-2 sm:p-3 text-sm sm:text-base text-gray-800"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -98,14 +97,14 @@ export default function ContactProvider() {
             </div>
 
             <div className="flex flex-col">
-              <label htmlFor="message" className="font-semibold mb-2">
+              <label htmlFor="message" className="font-semibold mb-2 text-sm sm:text-base">
                 {t.contactUs.messageLabel}
               </label>
               <textarea
                 id="message"
                 rows={5}
                 placeholder={t.contactUs.messagePlaceholder}
-                className="border border-gray-300 rounded-md p-2"
+                className="bg-white border border-gray-300 rounded-md p-2 sm:p-3 text-sm sm:text-base text-gray-800"
                 value={formData.message}
                 onChange={handleChange}
                 required
@@ -114,16 +113,17 @@ export default function ContactProvider() {
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-green-800 via-green-600 to-green-700 text-white font-semibold py-2 rounded-md hover:scale-105 transition-all duration-150"
+              className="w-full bg-white text-green-700 font-semibold py-2 sm:py-3 rounded-md hover:scale-105 transition-all duration-150 text-sm sm:text-base"
               disabled={isSending}
             >
               {isSending ? t.contactUs.sendingButton : t.contactUs.submitButton}
             </button>
           </form>
           {successMessage && (
-            <p className="mt-4 text-center font-medium text-green-500">{successMessage}</p>
+            <p className="mt-4 text-center font-medium text-green-500 text-sm sm:text-base">{successMessage}</p>
           )}
         </motion.div>
+        </div>
       </div>
     </div>
   );
