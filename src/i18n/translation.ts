@@ -52,6 +52,11 @@ export const translations = {
       brandName: "ANIVERA",
       partnershipText: "We are building the first animal-health intelligence hub. Modepran Valencia is now collaborating with us as our first pilot shelter.",
       ourMission: "Our Mission",
+      bedrockTitle: "Powered by AWS Bedrock",
+      bedrockText: "Leveraging cutting-edge AI technology to revolutionize animal health insights.",
+      blockchainTitle: "Powered by Blockchain Technology",
+      blockchainText: "Transparency, Secure, Decentralized",
+      turbineText: "Born from the heart of Turbin3",
     },
 
     // Donate Page
@@ -217,6 +222,11 @@ export const translations = {
       brandName: "ANIVERA",
       partnershipText: "Estamos construyendo el primer centro de inteligencia de salud animal. Modepran Valencia ahora está colaborando con nosotros como nuestro primer refugio piloto.",
       ourMission: "Nuestra Misión",
+      bedrockTitle: "Impulsado por AWS Bedrock",
+      bedrockText: "Aprovechando tecnología de IA de vanguardia para revolucionar los conocimientos de salud animal.",
+      blockchainTitle: "Impulsado por Tecnología Blockchain",
+      blockchainText: "Transparencia, Seguro, Descentralizado",
+      turbineText: "Nacido del corazón de Turbin3",
     },
 
     // Donate Page

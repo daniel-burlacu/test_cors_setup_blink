@@ -145,9 +145,7 @@ export const ProjectDescriptionProvider: React.FC = () => {
             >
               <div className="text-4xl">{step.icon}</div>
               <div>
-                <h2 className="text-2xl font-semibold text-gray-800">
-                  {step.title}
-                </h2>
+                {step.title}
                 <p className="text-gray-600 whitespace-pre-line">{step.description}</p>
               </div>
             </motion.div>

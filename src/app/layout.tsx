@@ -10,7 +10,13 @@ export const metadata = {
   title: 'Anivera',
   description: 'Created by Daniel Burlacu',
   icons: {
-    icon: '/SAFLogo.png',
+    icon: [
+      { url: '/SAFLogo.png' },
+      { url: '/SAFLogo.png', sizes: '32x32', type: 'image/png' },
+      { url: '/SAFLogo.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: '/SAFLogo.png',
+    shortcut: '/SAFLogo.png',
   },
 }
 

@@ -17,6 +17,8 @@ import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import CampaignIcon from "@mui/icons-material/Campaign";
 import { motion } from "framer-motion";
 import { useLanguage } from '@/contexts/LanguageContext';
+import bedrockLogo from '../../../public/bedrock.png';
+import blockchainLogo from '../../../public/blockchain.png';
 
 const highlight = { color: "#038e3dff" }; // Solana purple highlight
 const cardBg = { bgcolor: "#f9f9f9", borderRadius: 2 }; // light cards
@@ -26,46 +28,138 @@ export default function InvestorPresentation() {
   return (
     <Box sx={{ bgcolor: "#fff", color: "#111", py: 6, minHeight: "100vh" }}>
       <Container maxWidth="lg">
-        {/* Demo Application Link */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          style={{ textAlign: "right", marginBottom: "20px" }}
-        >
-          <Button
-            href="https://develop.d1ir61rx2rh3k4.amplifyapp.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="contained"
-            sx={{
-              bgcolor: "#036c2aff",
-              color: "white",
-              textTransform: "none",
-              fontWeight: "bold",
-              borderRadius: "8px",
-              px: 3,
-              py: 1,
-              "&:hover": { bgcolor: "#058d50ff" },
-            }}
+        {/* Demo Application Link and Technology Boxes */}
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 4 }}>
+          {/* Title on the left */}
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{ flex: 1 }}
           >
-            {t.application.viewDemo}
-          </Button>
-        </motion.div>
+            <Typography variant="h3" gutterBottom sx={{ fontWeight: "bold" }}>
+              <span style={highlight}>{t.general.brandName}</span>
+            </Typography>
+            <Typography variant="h6" color="text.secondary" paragraph>
+              {t.application.subtitle}
+            </Typography>
+          </motion.div>
 
-        {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <Typography variant="h3" gutterBottom sx={{ fontWeight: "bold" }}>
-          <span style={highlight}>{t.general.brandName}</span>
-          </Typography>
-          <Typography variant="h6" color="text.secondary" paragraph>
-            {t.application.subtitle}
-          </Typography>
-        </motion.div>
+          {/* Right side with button and boxes */}
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6 }}>
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <Button
+                href="https://develop.d1ir61rx2rh3k4.amplifyapp.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="contained"
+                sx={{
+                  bgcolor: "#036c2aff",
+                  color: "white",
+                  textTransform: "none",
+                  fontWeight: "bold",
+                  borderRadius: "8px",
+                  px: 3,
+                  py: 1,
+                  "&:hover": { bgcolor: "#058d50ff" },
+                }}
+              >
+                {t.application.viewDemo}
+              </Button>
+            </motion.div>
+
+            {/* Technology Boxes */}
+            <Box sx={{ display: 'flex', gap: 4, mt: 2 }}>
+              {/* Blockchain Technology Box */}
+              <motion.div
+                initial={{ opacity: 0, rotate: 0 }}
+                animate={{ opacity: 1, rotate: 45 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                style={{ transformOrigin: 'center' }}
+              >
+                <Box
+                  component="a"
+                  href="https://solana.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    bgcolor: 'white',
+                    border: '2px solid #16a34a',
+                    borderRadius: 2,
+                    width: 180,
+                    height: 180,
+                    textDecoration: 'none',
+                    transition: 'transform 0.3s',
+                    '&:hover': { transform: 'rotate(45deg) scale(1.05)' }
+                  }}
+                >
+                  <Box sx={{ transform: 'rotate(-45deg)', textAlign: 'center', p: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                    <img
+                      src={blockchainLogo.src}
+                      alt="Blockchain Technology"
+                      style={{ width: 50, height: 50, marginBottom: 8, objectFit: 'contain' }}
+                    />
+                    <Typography variant="caption" display="block" sx={{ fontWeight: 'bold', color: '#9333ea', mb: 0.5, fontSize: '0.7rem' }}>
+                      {t.general.blockchainTitle}
+                    </Typography>
+                    <Typography variant="caption" display="block" sx={{ fontSize: '0.6rem', color: '#666', lineHeight: 1.3 }}>
+                      {t.general.blockchainText}
+                    </Typography>
+                  </Box>
+                </Box>
+              </motion.div>
+
+              {/* AWS Bedrock Box */}
+              <motion.div
+                initial={{ opacity: 0, rotate: 0 }}
+                animate={{ opacity: 1, rotate: 45 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                style={{ transformOrigin: 'center' }}
+              >
+                <Box
+                  component="a"
+                  href="https://aws.amazon.com/bedrock/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    bgcolor: 'white',
+                    border: '2px solid #16a34a',
+                    borderRadius: 2,
+                    width: 180,
+                    height: 180,
+                    textDecoration: 'none',
+                    transition: 'transform 0.3s',
+                    '&:hover': { transform: 'rotate(45deg) scale(1.05)' }
+                  }}
+                >
+                  <Box sx={{ transform: 'rotate(-45deg)', textAlign: 'center', p: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                    <img
+                      src={bedrockLogo.src}
+                      alt="AWS Bedrock"
+                      style={{ width: 50, height: 50, marginBottom: 8, objectFit: 'contain' }}
+                    />
+                    <Typography variant="caption" display="block" sx={{ fontWeight: 'bold', color: '#f97316', mb: 0.5, fontSize: '0.7rem' }}>
+                      {t.general.bedrockTitle}
+                    </Typography>
+                    <Typography variant="caption" display="block" sx={{ fontSize: '0.6rem', color: '#666', lineHeight: 1.3 }}>
+                      {t.general.bedrockText}
+                    </Typography>
+                  </Box>
+                </Box>
+              </motion.div>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Business Model */}
         <Box sx={{ mt: 6 }}>
