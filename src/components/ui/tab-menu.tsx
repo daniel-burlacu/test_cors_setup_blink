@@ -96,7 +96,7 @@ export function TabMenu({ links }: { links: { label: string; path: string }[] })
                 href={path}
                 className={`tab ${
                   pathname.startsWith(path) ? 'tab-active' : ''
-                } text-white hover:bg-green-800 active:bg-green-600 hover:scale-105 active:scale-95 transition-all duration-150 w-full text-left`}
+                } text-green-800 hover:bg-green-100 active:bg-green-200 hover:scale-105 active:scale-95 transition-all duration-150 w-full text-left`}
                 onClick={() => setIsMenuOpen(false)} // Close menu when a link is clicked
               >
                 {label}

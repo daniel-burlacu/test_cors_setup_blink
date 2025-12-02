@@ -17,3 +17,17 @@ body {
 .wallet-adapter-button {
     font-family: inherit !important;
 }
+
+/* Mobile wallet button customization */
+@media (max-width: 640px) {
+    .wallet-adapter-button-trigger {
+        font-size: 0 !important;
+        padding: 8px 12px !important;
+    }
+    
+    .wallet-adapter-button-trigger::before {
+        content: '💼 Wallet';
+        font-size: 14px;
+        display: inline-block;
+    }
+}
