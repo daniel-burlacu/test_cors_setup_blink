@@ -15,6 +15,7 @@ import ShowChartIcon from "@mui/icons-material/ShowChart";
 import PetsIcon from "@mui/icons-material/Pets";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import CampaignIcon from "@mui/icons-material/Campaign";
+import MicIcon from "@mui/icons-material/Mic";
 import { motion } from "framer-motion";
 import { useLanguage } from '@/contexts/LanguageContext';
 import bedrockLogo from '../../../public/bedrock.png';
@@ -188,6 +189,44 @@ export default function InvestorPresentation() {
                     </Typography>
                     <Typography variant="caption" display="block" sx={{ fontSize: { xs: '0.55rem', sm: '0.6rem' }, color: '#666', lineHeight: 1.3 }}>
                       {t.general.bedrockText}
+                    </Typography>
+                  </Box>
+                </Box>
+              </motion.div>
+
+              {/* OpenAI Voice Interaction Box */}
+              <motion.div
+                initial={{ opacity: 0, rotate: 0 }}
+                animate={{ opacity: 1, rotate: 45 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                style={{ transformOrigin: 'center' }}
+              >
+                <Box
+                  component="a"
+                  href="https://openai.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    bgcolor: 'white',
+                    border: '2px solid #16a34a',
+                    borderRadius: 2,
+                    width: { xs: 140, sm: 160, md: 180 },
+                    height: { xs: 140, sm: 160, md: 180 },
+                    textDecoration: 'none',
+                    transition: 'transform 0.3s',
+                    '&:hover': { transform: 'rotate(45deg) scale(1.05)' }
+                  }}
+                >
+                  <Box sx={{ transform: 'rotate(-45deg)', textAlign: 'center', p: { xs: 1.5, sm: 2 }, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                    <MicIcon sx={{ fontSize: 46, color: '#10a37f', mb: 0.25 }} />
+                    <Typography variant="caption" display="block" sx={{ fontWeight: 'bold', color: '#10a37f', mb: 0.5, fontSize: { xs: '0.6rem', sm: '0.65rem', md: '0.7rem' } }}>
+                      {t.general.openaiTitle}
+                    </Typography>
+                    <Typography variant="caption" display="block" sx={{ fontSize: { xs: '0.55rem', sm: '0.6rem' }, color: '#666', lineHeight: 1.3 }}>
+                      {t.general.openaiText}
                     </Typography>
                   </Box>
                 </Box>

@@ -57,6 +57,8 @@ export const translations = {
       blockchainTitle: "Powered by Blockchain Technology",
       blockchainText: "Transparency, Secure, Decentralized",
       turbineText: "Born from the heart of Turbin3",
+      openaiTitle: "Voice Interaction Powered by OpenAI",
+      openaiText: "Seamless voice commands and natural language processing",
     },
 
     // Donate Page
@@ -223,10 +225,12 @@ export const translations = {
       partnershipText: "Colaboradores:",
       ourMission: "Nuestra Misión",
       bedrockTitle: "Impulsado por AWS Bedrock",
-      bedrockText: "Aprovechando tecnología de IA de vanguardia para revolucionar los conocimientos de salud animal.",
+      bedrockText: "Aprovechando la tecnología de IA de vanguardia para revolucionar las perspectivas de salud animal.",
       blockchainTitle: "Impulsado por Tecnología Blockchain",
       blockchainText: "Transparencia, Seguro, Descentralizado",
       turbineText: "Nacido del corazón de Turbin3",
+      openaiTitle: "Interacción por Voz con OpenAI",
+      openaiText: "Comandos de voz fluidos y procesamiento de lenguaje natural",
     },
 
     // Donate Page
