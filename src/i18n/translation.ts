@@ -55,7 +55,7 @@ export const translations = {
       bedrockTitle: "Powered by AWS Bedrock",
       bedrockText: "Leveraging cutting-edge AI technology to revolutionize animal health insights.",
       blockchainTitle: "Powered by Blockchain Technology",
-      blockchainText: "Transparency, Secure, Decentralized",
+      blockchainText: "Transparency, Secure, Semi-Decentralized",
       turbineText: "Born from the heart of Turbin3",
       openaiTitle: "Voice Interaction Powered by OpenAI",
       openaiText: "Seamless voice commands and natural language processing",
@@ -111,9 +111,9 @@ export const translations = {
     // Roadmap Page
     roadmap: {
       title: "Roadmap",
-      step1Title: "Pilot Application - we are here !",
+      step1Title: "Pilot Application: 09.07.2024 - 12.01.2025",
       step1Description: "Launch a simplified Web3 application for veterinary cabinets to test adding data to the blockchain.",
-      step2Title: "Fundraising Stage",
+      step2Title: "Fundraising Stage - open now ! - 12.01.2025",
       step2Description: "Raise funds to support the full-scale development of the project.",
       step3Title: "DAO Integration",
       step3Description: "Introduce DAO governance functionality for decentralized decision-making.",
@@ -227,7 +227,7 @@ export const translations = {
       bedrockTitle: "Impulsado por AWS Bedrock",
       bedrockText: "Aprovechando la tecnología de IA de vanguardia para revolucionar las perspectivas de salud animal.",
       blockchainTitle: "Impulsado por Tecnología Blockchain",
-      blockchainText: "Transparencia, Seguro, Descentralizado",
+      blockchainText: "Transparencia, Seguro, Semi-Descentralizado",
       turbineText: "Nacido del corazón de Turbin3",
       openaiTitle: "Interacción por Voz con OpenAI",
       openaiText: "Comandos de voz fluidos y procesamiento de lenguaje natural",
@@ -283,9 +283,9 @@ export const translations = {
     // Roadmap Page
     roadmap: {
       title: "Hoja de Ruta",
-      step1Title: "Aplicación Piloto - ¡estamos aquí!",
+      step1Title: "Aplicación Piloto  09.07.2024 - 12.01.2025",
       step1Description: "Lanzar una aplicación Web3 simplificada para que los consultorios veterinarios prueben agregar datos a la blockchain.",
-      step2Title: "Etapa de Recaudación de Fondos",
+      step2Title: "Etapa de Recaudación de Fondos - ¡abierta ahora! - 12.01.2025",
       step2Description: "Recaudar fondos para apoyar el desarrollo a gran escala del proyecto.",
       step3Title: "Integración de DAO",
       step3Description: "Introducir funcionalidad de gobernanza DAO para toma de decisiones descentralizada.",

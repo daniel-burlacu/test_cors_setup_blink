@@ -43,12 +43,17 @@ export const RoadMapProvider: React.FC = () => {
         {roadmapSteps.map((step, index) => (
           <motion.div
             key={index}
-            className="bg-white rounded-lg shadow-md p-4 sm:p-6 mb-4 sm:mb-6 flex flex-col sm:flex-row items-start space-y-3 sm:space-y-0 sm:space-x-4"
+            className="bg-white rounded-lg shadow-md p-4 sm:p-6 mb-4 sm:mb-6 flex flex-col sm:flex-row items-start space-y-3 sm:space-y-0 sm:space-x-4 relative"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: index * 0.2 }}
           >
+            {index === 0 && (
+              <div className="absolute top-2 right-2 text-green-600 font-bold text-sm sm:text-base border-2 border-green-600 px-2 py-1 rounded-full transform rotate-12">
+                ✓ DONE
+              </div>
+            )}
             <div className="text-3xl sm:text-4xl">{step.icon}</div>
             <div className="flex-1">
               <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-2">
