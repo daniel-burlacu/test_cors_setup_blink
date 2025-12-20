@@ -19,11 +19,21 @@ export const RoadMapProvider: React.FC = () => {
     {
       title: t.roadmap.step3Title,
       description: t.roadmap.step3Description,
-      icon: '🤝',
+      icon: '🏥',
     },
     {
       title: t.roadmap.step4Title,
       description: t.roadmap.step4Description,
+      icon: '🔗',
+    },
+    {
+      title: t.roadmap.step5Title,
+      description: t.roadmap.step5Description,
+      icon: '🤝',
+    },
+    {
+      title: t.roadmap.step6Title,
+      description: t.roadmap.step6Description,
       icon: '🎉',
     },
   ];

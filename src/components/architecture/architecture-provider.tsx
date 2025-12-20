@@ -1,11 +1,14 @@
 import { AppHero } from '../ui/ui-layout'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export const ArchitectureProvider: React.FC = () => {
+  const { t } = useLanguage()
+
   return (
     <div>
       <AppHero
-        title="Architecture Documentation"
-        subtitle="This is the architecture of the project and how it works."
+        title={t.architecture.title}
+        subtitle={t.architecture.subtitle}
       />
 
       {/* Centered Diagram */}

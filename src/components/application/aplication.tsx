@@ -16,6 +16,11 @@ import PetsIcon from "@mui/icons-material/Pets";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import CampaignIcon from "@mui/icons-material/Campaign";
 import MicIcon from "@mui/icons-material/Mic";
+import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import RestaurantIcon from "@mui/icons-material/Restaurant";
+import SchoolIcon from "@mui/icons-material/School";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { motion } from "framer-motion";
 import { useLanguage } from '@/contexts/LanguageContext';
 import bedrockLogo from '../../../public/bedrock.png';
@@ -233,6 +238,142 @@ export default function InvestorPresentation() {
               </motion.div>
             </Box>
           </Box>
+        </Box>
+
+        {/* AI Agents Section */}
+        <Box sx={{ mt: { xs: 6, md: 8 }, mb: { xs: 4, md: 6 } }}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <Typography 
+              variant="h4" 
+              gutterBottom 
+              sx={{ 
+                textAlign: 'center',
+                fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem' },
+                mb: 1
+              }}
+            >
+              {t.application.aiAgentsTitle}
+            </Typography>
+            <Typography 
+              variant="body1" 
+              color="text.secondary" 
+              sx={{ 
+                textAlign: 'center',
+                mb: 4,
+                fontSize: { xs: '0.875rem', sm: '1rem' }
+              }}
+            >
+              {t.application.aiAgentsSubtitle}
+            </Typography>
+          </motion.div>
+
+          <Grid container spacing={3} justifyContent="center">
+            {[
+              {
+                icon: <LocalHospitalIcon sx={{ fontSize: 48, color: "#dc2626" }} />,
+                title: t.application.doctorTitle,
+                subtitle: t.application.doctorSubtitle,
+                description: t.application.doctorDescription,
+                color: "#dc2626"
+              },
+              {
+                icon: <FavoriteBorderIcon sx={{ fontSize: 48, color: "#ec4899" }} />,
+                title: t.application.wellbeingTitle,
+                subtitle: t.application.wellbeingSubtitle,
+                description: t.application.wellbeingDescription,
+                color: "#ec4899"
+              },
+              {
+                icon: <RestaurantIcon sx={{ fontSize: 48, color: "#f59e0b" }} />,
+                title: t.application.nutritionistTitle,
+                subtitle: t.application.nutritionistSubtitle,
+                description: t.application.nutritionistDescription,
+                color: "#f59e0b"
+              },
+              {
+                icon: <SchoolIcon sx={{ fontSize: 48, color: "#3b82f6" }} />,
+                title: t.application.trainerTitle,
+                subtitle: t.application.trainerSubtitle,
+                description: t.application.trainerDescription,
+                color: "#3b82f6"
+              },
+              {
+                icon: <HelpOutlineIcon sx={{ fontSize: 48, color: "#8b5cf6" }} />,
+                title: t.application.supportTitle,
+                subtitle: t.application.supportSubtitle,
+                description: t.application.supportDescription,
+                color: "#8b5cf6"
+              },
+            ].map((agent, idx) => (
+              <Grid item xs={12} sm={6} md={4} key={idx} display="flex">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  style={{ width: "100%" }}
+                >
+                  <Card
+                    sx={{
+                      ...cardBg,
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "flex-start",
+                      transition: "transform 0.3s, box-shadow 0.3s",
+                      "&:hover": {
+                        transform: "translateY(-8px)",
+                        boxShadow: `0 8px 24px ${agent.color}30`
+                      }
+                    }}
+                  >
+                    <CardContent sx={{ flexGrow: 1, textAlign: "center", p: 3 }}>
+                      <Box sx={{ mb: 2 }}>
+                        {agent.icon}
+                      </Box>
+                      <Typography 
+                        variant="h6" 
+                        sx={{ 
+                          fontWeight: "bold",
+                          mb: 0.5,
+                          color: agent.color
+                        }}
+                      >
+                        {agent.title}
+                      </Typography>
+                      <Typography 
+                        variant="caption" 
+                        display="block"
+                        sx={{ 
+                          fontWeight: "600",
+                          mb: 2,
+                          color: "text.secondary",
+                          textTransform: "uppercase",
+                          letterSpacing: "0.5px"
+                        }}
+                      >
+                        {agent.subtitle}
+                      </Typography>
+                      <Typography 
+                        variant="body2"
+                        sx={{ 
+                          color: "text.secondary",
+                          lineHeight: 1.6
+                        }}
+                      >
+                        {agent.description}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </Grid>
+            ))}
+          </Grid>
         </Box>
 
         {/* Business Model */}

@@ -57,27 +57,19 @@ export const ProjectDescriptionProvider: React.FC = () => {
           </Typography></>),
       icon: '💡',
     },
-    //Our Values
-
-// Transparency – We communicate openly about how data is collected, anonymized, and used, so vets and pet owners can trust the process.
-// Collaboration – We bring together veterinarians, researchers, and communities to create shared knowledge that benefits all pets.
-// Innovation – We use secure, modern technology (blockchain) to simplify data sharing and unlock insights that traditional methods can’t provide.
-// Animal Welfare – Every feature we build serves one purpose: to improve health outcomes and quality of life for pets worldwide.
-
     {
-      title: (<Typography variant="h4" gutterBottom sx={{fontWeight: "bold" }}>Our Values</Typography>),
+      title: (<Typography variant="h4" gutterBottom sx={{fontWeight: "bold" }}>{t.project.ourValues}</Typography>),
       description:
         (<Typography paragraph sx={{ fontSize: "1.1rem", lineHeight: 1.8 }}>
           <ul style={{ marginLeft: "1.2rem", marginBottom: "1rem" }}>
-            <li>- <strong>Privacy First:</strong> We prioritize data security and user privacy above all else.</li>
-            <li>- <strong>Transparency</strong> We communicate openly about how data is collected, anonymized, and used, so vets and pet owners can trust the process.</li>
-            <li>- <strong>Open Collaboration:</strong>  We bring together veterinarians, researchers, and communities to create shared knowledge that benefits all pets.</li>
-            <li>- <strong>Innovation:</strong> We use secure, modern technology (blockchain) to simplify data sharing and unlock insights that traditional methods can’t provide.</li>
-            <li>- <strong>Animal Welfare:</strong>  Every feature we build serves one purpose: to improve health outcomes and quality of life for pets worldwide.</li>
+            <li>- <strong>{t.project.privacyFirst}</strong> {t.project.privacyFirstText}</li>
+            <li>- <strong>{t.project.transparency}</strong> {t.project.transparencyText}</li>
+            <li>- <strong>{t.project.openCollaboration}</strong> {t.project.openCollaborationText}</li>
+            <li>- <strong>{t.project.innovation}</strong> {t.project.innovationText}</li>
+            <li>- <strong>{t.project.animalWelfare}</strong> {t.project.animalWelfareText}</li>
           </ul>
           </Typography>),
       icon: '❤️',
-
     },
     {
       title: (<Typography variant="h4" gutterBottom sx={{fontWeight: "bold" }}>{t.project.keyFeatures}</Typography>),

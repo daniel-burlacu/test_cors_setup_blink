@@ -48,7 +48,7 @@ export default function ContactProvider() {
 
   return (
     <div>
-      <div className="min-h-screen bg-white flex flex-col items-center justify-center py-6 sm:py-10 px-4 sm:px-6">
+      <div className="min-h-screen bg-white flex flex-col items-center justify-center py-6 sm:py-10 px-4 sm:px-6 lg:px-12 xl:px-16">
         <motion.h1
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-800 via-green-600 to-green-700 mb-6 sm:mb-8 text-center"
           initial={{ opacity: 0, y: -50 }}
@@ -58,23 +58,23 @@ export default function ContactProvider() {
           {t.contactUs.title}
         </motion.h1>
 
-        <div className="w-full max-w-4xl px-2 sm:px-4">
+        <div className="w-full">
           <motion.div
-            className="bg-gradient-to-r from-green-800 via-green-600 to-green-700 text-white rounded-lg shadow-lg p-6 sm:p-8"
+            className="bg-gradient-to-r from-green-800 via-green-600 to-green-700 text-white rounded-lg shadow-lg p-6 sm:p-8 md:p-10 lg:p-12"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
           >
-          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8 w-full">
             <div className="flex flex-col">
-              <label htmlFor="name" className="font-semibold mb-2 text-sm sm:text-base">
+              <label htmlFor="name" className="font-semibold mb-3 text-base sm:text-lg md:text-xl">
                 {t.contactUs.nameLabel}
               </label>
               <input
                 id="name"
                 type="text"
                 placeholder={t.contactUs.namePlaceholder}
-                className="bg-white border border-gray-300 rounded-md p-2 sm:p-3 text-sm sm:text-base text-gray-800"
+                className="w-full bg-white border border-gray-300 rounded-md p-4 sm:p-5 text-base sm:text-lg text-gray-800"
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -82,14 +82,14 @@ export default function ContactProvider() {
             </div>
 
             <div className="flex flex-col">
-              <label htmlFor="email" className="font-semibold mb-2 text-sm sm:text-base">
+              <label htmlFor="email" className="font-semibold mb-3 text-base sm:text-lg md:text-xl">
                 {t.contactUs.emailLabel}
               </label>
               <input
                 id="email"
                 type="email"
                 placeholder={t.contactUs.emailPlaceholder}
-                className="bg-white border border-gray-300 rounded-md p-2 sm:p-3 text-sm sm:text-base text-gray-800"
+                className="w-full bg-white border border-gray-300 rounded-md p-4 sm:p-5 text-base sm:text-lg text-gray-800"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -97,14 +97,14 @@ export default function ContactProvider() {
             </div>
 
             <div className="flex flex-col">
-              <label htmlFor="message" className="font-semibold mb-2 text-sm sm:text-base">
+              <label htmlFor="message" className="font-semibold mb-3 text-base sm:text-lg md:text-xl">
                 {t.contactUs.messageLabel}
               </label>
               <textarea
                 id="message"
-                rows={5}
+                rows={8}
                 placeholder={t.contactUs.messagePlaceholder}
-                className="bg-white border border-gray-300 rounded-md p-2 sm:p-3 text-sm sm:text-base text-gray-800"
+                className="w-full bg-white border border-gray-300 rounded-md p-4 sm:p-5 text-base sm:text-lg text-gray-800"
                 value={formData.message}
                 onChange={handleChange}
                 required
@@ -113,7 +113,7 @@ export default function ContactProvider() {
 
             <button
               type="submit"
-              className="w-full bg-white text-green-700 font-semibold py-2 sm:py-3 rounded-md hover:scale-105 transition-all duration-150 text-sm sm:text-base"
+              className="w-full bg-white text-green-700 font-semibold py-4 sm:py-5 rounded-md hover:scale-105 transition-all duration-150 text-base sm:text-lg md:text-xl"
               disabled={isSending}
             >
               {isSending ? t.contactUs.sendingButton : t.contactUs.submitButton}
