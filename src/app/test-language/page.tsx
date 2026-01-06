@@ -3,7 +3,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function TestLanguagePage() {
-  const { language, t, setLanguage } = useLanguage();
+  const { language, t } = useLanguage();
 
   return (
     <div className="container mx-auto p-8">
@@ -15,18 +15,9 @@ export default function TestLanguagePage() {
       </div>
       
       <div className="flex gap-4 mb-6">
-        <button 
-          className={`btn ${language === 'en' ? 'btn-primary' : 'btn-outline'}`}
-          onClick={() => setLanguage('en')}
-        >
-          Switch to English 🇺🇸
-        </button>
-        <button 
-          className={`btn ${language === 'es' ? 'btn-primary' : 'btn-outline'}`}
-          onClick={() => setLanguage('es')}
-        >
-          Switch to Spanish 🇪🇸
-        </button>
+        <p className="text-gray-600 dark:text-gray-400">
+          Use the language selector in the navbar to change the language.
+        </p>
       </div>
       
       <div className="space-y-4">

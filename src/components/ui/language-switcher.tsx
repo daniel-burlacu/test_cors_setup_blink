@@ -2,114 +2,128 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Language } from '@/i18n/translation';
-import Image from 'next/image';
+import { useState } from 'react';
+import ReactCountryFlag from 'react-country-flag';
 
-const LANGUAGES: { code: Language; flag: string; name: string; countryCode: string }[] = [
-  { code: 'en', flag: 'us', name: 'English', countryCode: 'us' },
-  { code: 'es', flag: 'es', name: 'Español', countryCode: 'es' },
-  { code: 'de', flag: 'de', name: 'Deutsch', countryCode: 'de' },
-  { code: 'pt', flag: 'pt', name: 'Português', countryCode: 'pt' },
-  { code: 'fr', flag: 'fr', name: 'Français', countryCode: 'fr' },
-  { code: 'ro', flag: 'ro', name: 'Română', countryCode: 'ro' },
-  { code: 'it', flag: 'it', name: 'Italiano', countryCode: 'it' },
-  { code: 'fi', flag: 'fi', name: 'Suomi', countryCode: 'fi' },
-  { code: 'sv', flag: 'se', name: 'Svenska', countryCode: 'se' },
+const LANGUAGES: { code: Language; name: string; displayCode: string; countryCode: string }[] = [
+  { code: 'en', name: 'English', displayCode: 'UK', countryCode: 'GB' },
+  { code: 'es', name: 'Español', displayCode: 'ES', countryCode: 'ES' },
+  { code: 'de', name: 'Deutsch', displayCode: 'DE', countryCode: 'DE' },
+  { code: 'pt', name: 'Português', displayCode: 'PT', countryCode: 'PT' },
+  { code: 'fr', name: 'Français', displayCode: 'FR', countryCode: 'FR' },
+  { code: 'ro', name: 'Română', displayCode: 'RO', countryCode: 'RO' },
+  { code: 'it', name: 'Italiano', displayCode: 'IT', countryCode: 'IT' },
+  { code: 'fi', name: 'Suomi', displayCode: 'FI', countryCode: 'FI' },
 ];
 
 export function LanguageSwitcher() {
   const { language, setLanguage } = useLanguage();
+  const [isOpen, setIsOpen] = useState(false);
 
   const currentLanguage = LANGUAGES.find(lang => lang.code === language) || LANGUAGES[0];
 
   return (
-    <div className="dropdown dropdown-end">
+    <div className="relative inline-block">
       <button
-        tabIndex={0}
-        className="btn btn-sm bg-white text-green-800 hover:bg-green-100 border-none p-2"
+        onClick={() => setIsOpen(!isOpen)}
+        className="px-3 py-2 bg-white text-gray-800 hover:bg-gray-100 border border-gray-300 rounded-lg flex items-center gap-2"
         title="Select Language"
       >
-        <Image
-          src={`https://flagcdn.com/w40/${currentLanguage.countryCode}.png`}
-          alt={currentLanguage.name}
-          width={32}
-          height={24}
-          className="rounded"
-        />
+        <span className="font-semibold text-sm">{currentLanguage.displayCode}</span>
+        <ReactCountryFlag countryCode={currentLanguage.countryCode} svg style={{width: '20px', height: '20px'}} />
       </button>
-      <ul
-        tabIndex={0}
-        className="dropdown-content z-[1] menu p-2 shadow-lg bg-white rounded-box w-20 gap-1"
-      >
-        {LANGUAGES.map(lang => (
-          <li key={lang.code}>
-            <button
-              onClick={() => {
-                setLanguage(lang.code);
-                console.log('Switching language to', lang.code);
-              }}
-              className={`p-2 hover:bg-green-100 rounded flex items-center justify-center ${language === lang.code ? 'bg-green-200' : ''}`}
-              title={lang.name}
-            >
-              <Image
-                src={`https://flagcdn.com/w40/${lang.countryCode}.png`}
-                alt={lang.name}
-                width={32}
-                height={24}
-                className="rounded"
-              />
-            </button>
-          </li>
-        ))}
-      </ul>
+      
+      {isOpen && (
+        <>
+          <div
+            className="fixed inset-0 z-30"
+            onClick={() => setIsOpen(false)}
+          />
+          <div className="absolute top-full right-0 mt-2 w-56 bg-white border border-gray-300 rounded-lg shadow-lg z-40">
+            <div className="p-2">
+              {LANGUAGES.map(lang => {
+                return (
+                  <button
+                    key={lang.code}
+                    onClick={() => {
+                      setLanguage(lang.code);
+                      setIsOpen(false);
+                    }}
+                    className={`w-full text-left px-3 py-2 rounded-md transition-colors flex items-center gap-2 ${
+                      language === lang.code
+                        ? 'bg-blue-500 text-white'
+                        : 'hover:bg-gray-100 text-gray-900'
+                    }`}
+                    title={lang.name}
+                  >
+                    <ReactCountryFlag countryCode={lang.countryCode} svg style={{width: '20px', height: '20px'}} />
+                    <div className="flex-1">
+                      <div className="font-semibold text-sm">{lang.displayCode}</div>
+                      <div className="text-xs opacity-75">{lang.name}</div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }
 
 export function LanguageSwitcherMobile() {
   const { language, setLanguage } = useLanguage();
+  const [isOpen, setIsOpen] = useState(false);
 
   const currentLanguage = LANGUAGES.find(lang => lang.code === language) || LANGUAGES[0];
 
   return (
-    <div className="dropdown dropdown-end">
+    <div className="relative inline-block">
       <button
-        tabIndex={0}
-        className="btn btn-xs bg-white text-green-800 hover:bg-green-100 border-none p-1"
+        onClick={() => setIsOpen(!isOpen)}
+        className="px-2 py-1 bg-white text-gray-800 hover:bg-gray-100 border border-gray-300 rounded-lg flex items-center gap-1 text-xs"
         title="Select Language"
       >
-        <Image
-          src={`https://flagcdn.com/w40/${currentLanguage.countryCode}.png`}
-          alt={currentLanguage.name}
-          width={24}
-          height={18}
-          className="rounded"
-        />
+        <span className="font-semibold">{currentLanguage.displayCode}</span>
+        <ReactCountryFlag countryCode={currentLanguage.countryCode} svg style={{width: '16px', height: '16px'}} />
       </button>
-      <ul
-        tabIndex={0}
-        className="dropdown-content z-[1] menu p-2 shadow-lg bg-white rounded-box w-16 gap-1"
-      >
-        {LANGUAGES.map(lang => (
-          <li key={lang.code}>
-            <button
-              onClick={() => {
-                setLanguage(lang.code);
-                console.log('Switching language to', lang.code);
-              }}
-              className={`p-1 hover:bg-green-100 rounded flex items-center justify-center ${language === lang.code ? 'bg-green-200' : ''}`}
-              title={lang.name}
-            >
-              <Image
-                src={`https://flagcdn.com/w40/${lang.countryCode}.png`}
-                alt={lang.name}
-                width={24}
-                height={18}
-                className="rounded"
-              />
-            </button>
-          </li>
-        ))}
-      </ul>
+      
+      {isOpen && (
+        <>
+          <div
+            className="fixed inset-0 z-30"
+            onClick={() => setIsOpen(false)}
+          />
+          <div className="absolute top-full right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg z-40">
+            <div className="p-2">
+              {LANGUAGES.map(lang => {
+                return (
+                  <button
+                    key={lang.code}
+                    onClick={() => {
+                      setLanguage(lang.code);
+                      setIsOpen(false);
+                    }}
+                    className={`w-full text-left px-2 py-1 rounded-md transition-colors flex items-center gap-1 text-sm ${
+                      language === lang.code
+                        ? 'bg-blue-500 text-white'
+                        : 'hover:bg-gray-100 text-gray-900'
+                    }`}
+                    title={lang.name}
+                  >
+                    <ReactCountryFlag countryCode={lang.countryCode} svg style={{width: '16px', height: '16px'}} />
+                    <div className="flex-1">
+                      <div className="font-semibold text-xs">{lang.displayCode}</div>
+                      <div className="text-xs opacity-75">{lang.name}</div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }
