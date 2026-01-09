@@ -38,8 +38,8 @@ export function TabMenu({ links }: { links: { label: string; path: string }[] })
         {/* WalletButton and ClusterUiSelect for smaller screens */}
         <div className="flex items-center space-x-2 sm:hidden">
           <LanguageSwitcherMobile />
-          <WalletButton />
-          <ClusterUiSelect />
+          {/* <WalletButton /> */}
+          {/* <ClusterUiSelect /> */}
         </div>
 
         {/* Hamburger Icon for Mobile */}
@@ -81,8 +81,8 @@ export function TabMenu({ links }: { links: { label: string; path: string }[] })
         {/* WalletButton and ClusterUiSelect for Desktop */}
         <div className="hidden sm:flex items-center space-x-2">
           <LanguageSwitcher />
-          <WalletButton />
-          <ClusterUiSelect />
+          {/* <WalletButton /> */}
+          {/* <ClusterUiSelect /> */}
         </div>
       </div>
 
