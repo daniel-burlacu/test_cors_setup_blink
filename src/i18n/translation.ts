@@ -8,7 +8,7 @@ export const translations = {
       aboutUs: "About-Us",
       architecture: "Architecture",
       applicationDemo: "Application-Demo",
-      contactUs: "Contact-Us",
+      contactUs: "Contact-Me",
     },
 
     // General
@@ -136,7 +136,7 @@ export const translations = {
       campaignsText: "Sponsored sales campaigns (€5k–€20k each).",
       joinJourney: "Join Us on the Journey",
       journeyDescription: "Building the global animal health data backbone, valuable for industries, life-changing for pets.",
-      contactUs: "Contact Us",
+      contactUs: "Contact Me",
     },
 
     // Architecture Page
@@ -164,18 +164,11 @@ export const translations = {
 
     // Contact Us Page
     contactUs: {
-      title: "Contact Us",
-      nameLabel: "Name",
-      namePlaceholder: "Enter your name",
-      emailLabel: "Email",
-      emailPlaceholder: "Enter your email",
-      messageLabel: "Message",
-      messagePlaceholder: "Write your message",
-      submitButton: "Submit",
-      sendingButton: "Sending...",
-      successMessage: "Your message has been sent successfully!",
-      errorMessage: "Failed to send your message. Please try again.",
-      networkError: "An error occurred. Please try again.",
+      title: "Contact Me",
+      intro: "Reach Daniel directly.",
+      linkedinLabel: "LinkedIn",
+      discordLabel: "Discord",
+      websiteLabel: "Personal page",
     },
   },
 
@@ -188,7 +181,7 @@ export const translations = {
       aboutUs: "Sobre Nosotros",
       architecture: "Arquitectura",
       applicationDemo: "Demo de Aplicación",
-      contactUs: "Contáctanos",
+      contactUs: "Contáctame",
     },
 
     // General
@@ -316,7 +309,7 @@ export const translations = {
       campaignsText: "Campañas de ventas patrocinadas (€5k–€20k cada una).",
       joinJourney: "Únete al Viaje",
       journeyDescription: "Construyendo la columna vertebral de datos de salud animal global, valiosa para industrias, que cambia vidas para mascotas.",
-      contactUs: "Contáctanos",
+      contactUs: "Contáctame",
     },
 
     // About Us Page
@@ -338,18 +331,11 @@ export const translations = {
 
     // Contact Us Page
     contactUs: {
-      title: "Contáctanos",
-      nameLabel: "Nombre",
-      namePlaceholder: "Ingresa tu nombre",
-      emailLabel: "Correo Electrónico",
-      emailPlaceholder: "Ingresa tu correo electrónico",
-      messageLabel: "Mensaje",
-      messagePlaceholder: "Escribe tu mensaje",
-      submitButton: "Enviar",
-      sendingButton: "Enviando...",
-      successMessage: "¡Tu mensaje ha sido enviado exitosamente!",
-      errorMessage: "Error al enviar tu mensaje. Por favor inténtalo de nuevo.",
-      networkError: "Ocurrió un error. Por favor inténtalo de nuevo.",
+      title: "Contáctame",
+      intro: "Contacta con Daniel directamente.",
+      linkedinLabel: "LinkedIn",
+      discordLabel: "Discord",
+      websiteLabel: "Página personal",
     },
 
     // Architecture Page
@@ -368,7 +354,7 @@ export const translations = {
       aboutUs: "Über uns",
       architecture: "Architektur",
       applicationDemo: "Anwendungs-Demo",
-      contactUs: "Kontakt",
+      contactUs: "Kontaktiere-mich",
     },
 
     // General
@@ -496,7 +482,7 @@ export const translations = {
       campaignsText: "Gesponserte Verkaufskampagnen (€5k–€20k jeweils).",
       joinJourney: "Begleiten Sie uns auf der Reise",
       journeyDescription: "Aufbau des globalen Tiergesundheitsdaten-Rückgrats, wertvoll für Industrien, lebensverändernd für Haustiere.",
-      contactUs: "Kontaktieren Sie uns",
+      contactUs: "Kontaktieren Sie mich",
     },
 
     // About Us Page
@@ -518,18 +504,11 @@ export const translations = {
 
     // Contact Us Page
     contactUs: {
-      title: "Kontaktieren Sie uns",
-      nameLabel: "Name",
-      namePlaceholder: "Geben Sie Ihren Namen ein",
-      emailLabel: "E-Mail",
-      emailPlaceholder: "Geben Sie Ihre E-Mail ein",
-      messageLabel: "Nachricht",
-      messagePlaceholder: "Schreiben Sie Ihre Nachricht",
-      submitButton: "Absenden",
-      sendingButton: "Wird gesendet...",
-      successMessage: "Ihre Nachricht wurde erfolgreich gesendet!",
-      errorMessage: "Fehler beim Senden Ihrer Nachricht. Bitte versuchen Sie es erneut.",
-      networkError: "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+      title: "Kontaktieren Sie mich",
+      intro: "Erreichen Sie Daniel direkt.",
+      linkedinLabel: "LinkedIn",
+      discordLabel: "Discord",
+      websiteLabel: "Persönliche Seite",
     },
 
     // Architecture Page
@@ -548,7 +527,7 @@ export const translations = {
       aboutUs: "Sobre Nós",
       architecture: "Arquitetura",
       applicationDemo: "Demo da Aplicação",
-      contactUs: "Contate-nos",
+      contactUs: "Contacte-me",
     },
 
     // General
@@ -676,7 +655,7 @@ export const translations = {
       campaignsText: "Campanhas de vendas patrocinadas (€5k–€20k cada).",
       joinJourney: "Junte-se a Nós na Jornada",
       journeyDescription: "Construindo a coluna vertebral de dados de saúde animal global, valiosa para indústrias, transformadora para animais de estimação.",
-      contactUs: "Contate-nos",
+      contactUs: "Contacte-me",
     },
 
     // About Us Page
@@ -698,18 +677,11 @@ export const translations = {
 
     // Contact Us Page
     contactUs: {
-      title: "Contate-nos",
-      nameLabel: "Nome",
-      namePlaceholder: "Digite seu nome",
-      emailLabel: "Email",
-      emailPlaceholder: "Digite seu email",
-      messageLabel: "Mensagem",
-      messagePlaceholder: "Escreva sua mensagem",
-      submitButton: "Enviar",
-      sendingButton: "Enviando...",
-      successMessage: "Sua mensagem foi enviada com sucesso!",
-      errorMessage: "Falha ao enviar sua mensagem. Por favor, tente novamente.",
-      networkError: "Ocorreu um erro. Por favor, tente novamente.",
+      title: "Contacte-me",
+      intro: "Fale diretamente com o Daniel.",
+      linkedinLabel: "LinkedIn",
+      discordLabel: "Discord",
+      websiteLabel: "Página pessoal",
     },
 
     // Architecture Page
@@ -728,7 +700,7 @@ export const translations = {
       aboutUs: "À Propos",
       architecture: "Architecture",
       applicationDemo: "Démo d'Application",
-      contactUs: "Nous Contacter",
+      contactUs: "Me contacter",
     },
 
     // General
@@ -856,7 +828,7 @@ export const translations = {
       campaignsText: "Campagnes de ventes sponsorisées (€5k–€20k chacun).",
       joinJourney: "Rejoignez-nous dans le Voyage",
       journeyDescription: "Construire l'épine dorsale des données de santé animale mondiale, précieuse pour les industries, transformatrice pour les animaux de compagnie.",
-      contactUs: "Nous Contacter",
+      contactUs: "Me contacter",
     },
 
     // About Us Page
@@ -878,18 +850,11 @@ export const translations = {
 
     // Contact Us Page
     contactUs: {
-      title: "Nous Contacter",
-      nameLabel: "Nom",
-      namePlaceholder: "Entrez votre nom",
-      emailLabel: "Email",
-      emailPlaceholder: "Entrez votre email",
-      messageLabel: "Message",
-      messagePlaceholder: "Écrivez votre message",
-      submitButton: "Soumettre",
-      sendingButton: "Envoi...",
-      successMessage: "Votre message a été envoyé avec succès!",
-      errorMessage: "Échec de l'envoi de votre message. Veuillez réessayer.",
-      networkError: "Une erreur s'est produite. Veuillez réessayer.",
+      title: "Me contacter",
+      intro: "Contactez Daniel directement.",
+      linkedinLabel: "LinkedIn",
+      discordLabel: "Discord",
+      websiteLabel: "Page personnelle",
     },
 
     // Architecture Page
@@ -908,7 +873,7 @@ export const translations = {
       aboutUs: "Despre Noi",
       architecture: "Arhitectură",
       applicationDemo: "Demo Aplicație",
-      contactUs: "Contactați-ne",
+      contactUs: "Contactează-mă",
     },
 
     // General
@@ -1036,7 +1001,7 @@ export const translations = {
       campaignsText: "Campaniile de vânzări sponsorizate (€5k–€20k fiecare).",
       joinJourney: "Alătură-te Nouă în Călătorie",
       journeyDescription: "Construind coloana vertebrală a datelor globale de sănătate animală, valoroasă pentru industrii, transformatoare pentru animalele de companie.",
-      contactUs: "Contactați-ne",
+      contactUs: "Contactează-mă",
     },
 
     // About Us Page
@@ -1058,18 +1023,11 @@ export const translations = {
 
     // Contact Us Page
     contactUs: {
-      title: "Contactați-ne",
-      nameLabel: "Nume",
-      namePlaceholder: "Introduceți-vă numele",
-      emailLabel: "Email",
-      emailPlaceholder: "Introduceți-vă e-mailul",
-      messageLabel: "Mesaj",
-      messagePlaceholder: "Scrieți-vă mesajul",
-      submitButton: "Trimiteți",
-      sendingButton: "Se trimite...",
-      successMessage: "Mesajul dvs. a fost trimis cu succes!",
-      errorMessage: "Eroare la trimiterea mesajului dvs. Vă rugăm să încercați din nou.",
-      networkError: "A apărut o eroare. Vă rugăm să încercați din nou.",
+      title: "Contactează-mă",
+      intro: "Ia legătura direct cu Daniel.",
+      linkedinLabel: "LinkedIn",
+      discordLabel: "Discord",
+      websiteLabel: "Pagina personală",
     },
 
     // Architecture Page
@@ -1088,7 +1046,7 @@ export const translations = {
       aboutUs: "Chi Siamo",
       architecture: "Architettura",
       applicationDemo: "Demo Applicazione",
-      contactUs: "Contattaci",
+      contactUs: "Contattami",
     },
 
     // General
@@ -1216,7 +1174,7 @@ export const translations = {
       campaignsText: "Campagne di vendita sponsorizzate (€5k–€20k ciascuna).",
       joinJourney: "Unisciti a Noi nel Viaggio",
       journeyDescription: "Costruendo la spina dorsale dei dati sanitari degli animali globale, preziosa per le industrie, trasformativa per gli animali domestici.",
-      contactUs: "Contattaci",
+      contactUs: "Contattami",
     },
 
     // About Us Page
@@ -1238,18 +1196,11 @@ export const translations = {
 
     // Contact Us Page
     contactUs: {
-      title: "Contattaci",
-      nameLabel: "Nome",
-      namePlaceholder: "Inserisci il tuo nome",
-      emailLabel: "Email",
-      emailPlaceholder: "Inserisci la tua email",
-      messageLabel: "Messaggio",
-      messagePlaceholder: "Scrivi il tuo messaggio",
-      submitButton: "Invia",
-      sendingButton: "Invio in corso...",
-      successMessage: "Il tuo messaggio è stato inviato con successo!",
-      errorMessage: "Errore nell'invio del tuo messaggio. Si prega di riprovare.",
-      networkError: "Si è verificato un errore. Si prega di riprovare.",
+      title: "Contattami",
+      intro: "Contatta Daniel direttamente.",
+      linkedinLabel: "LinkedIn",
+      discordLabel: "Discord",
+      websiteLabel: "Pagina personale",
     },
 
     // Architecture Page
@@ -1268,7 +1219,7 @@ export const translations = {
       aboutUs: "Tietoa Meistä",
       architecture: "Arkkitehtuuri",
       applicationDemo: "Sovellustestiajo",
-      contactUs: "Ota Yhteyttä",
+      contactUs: "Ota yhteyttä",
     },
 
     // General
@@ -1396,7 +1347,7 @@ export const translations = {
       campaignsText: "Sponsoroidut myyntikampanjat (€5k–€20k kukin).",
       joinJourney: "Liity Matkaan",
       journeyDescription: "Rakentaa maailmanlaajuista eläinterveydentietoverkkoa, arvokas teollisuudelle, muuntava lemmikeille.",
-      contactUs: "Ota Yhteyttä",
+      contactUs: "Ota yhteyttä",
     },
 
     // About Us Page
@@ -1418,18 +1369,11 @@ export const translations = {
 
     // Contact Us Page
     contactUs: {
-      title: "Ota Yhteyttä",
-      nameLabel: "Nimi",
-      namePlaceholder: "Kirjoita nimesi",
-      emailLabel: "Sähköposti",
-      emailPlaceholder: "Kirjoita sähköpostiosoitteesi",
-      messageLabel: "Viesti",
-      messagePlaceholder: "Kirjoita viestisi",
-      submitButton: "Lähetä",
-      sendingButton: "Lähetetään...",
-      successMessage: "Viestisi lähetetty onnistuneesti!",
-      errorMessage: "Virhe viestin lähettämisessä. Yritä uudelleen.",
-      networkError: "Tapahtui virhe. Yritä uudelleen.",
+      title: "Ota yhteyttä",
+      intro: "Tavoitat Danielin suoraan.",
+      linkedinLabel: "LinkedIn",
+      discordLabel: "Discord",
+      websiteLabel: "Henkilökohtainen sivu",
     },
 
     // Architecture Page
@@ -1449,7 +1393,7 @@ export const translations = {
       aboutUs: "Om-Oss",
       architecture: "Arkitektur",
       applicationDemo: "App-Demo",
-      contactUs: "Kontakta-Oss",
+      contactUs: "Kontakta-mig",
     },
 
     // General
@@ -1577,7 +1521,7 @@ export const translations = {
       campaignsText: "Sponsrade försäljningskampanjer (€5k–€20k var).",
       joinJourney: "Gå Med på Resan",
       journeyDescription: "Bygga ett globalt husdjurshälsodatanät, värdefullt för industrin, transformativt för husdjur.",
-      contactUs: "Kontakta Oss",
+      contactUs: "Kontakta mig",
     },
 
     // About Us Page
@@ -1599,18 +1543,11 @@ export const translations = {
 
     // Contact Us Page
     contactUs: {
-      title: "Kontakta Oss",
-      nameLabel: "Namn",
-      namePlaceholder: "Skriv ditt namn",
-      emailLabel: "E-post",
-      emailPlaceholder: "Skriv din e-postadress",
-      messageLabel: "Meddelande",
-      messagePlaceholder: "Skriv ditt meddelande",
-      submitButton: "Skicka",
-      sendingButton: "Skickar...",
-      successMessage: "Ditt meddelande skickades framgångsrikt!",
-      errorMessage: "Fel vid sändning av meddelande. Försök igen.",
-      networkError: "Ett fel inträffade. Försök igen.",
+      title: "Kontakta mig",
+      intro: "Nå Daniel direkt.",
+      linkedinLabel: "LinkedIn",
+      discordLabel: "Discord",
+      websiteLabel: "Personlig sida",
     },
 
     // Architecture Page
