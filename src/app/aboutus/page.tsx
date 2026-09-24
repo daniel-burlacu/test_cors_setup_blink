@@ -3,7 +3,7 @@ import {AboutUsProvider} from '@/components/about-us/about-us-provider';
 
 export default function DonatedPage() {
   return (
-    <div>      
+    <div className="flex flex-1 flex-col">
       <AboutUsProvider />
     </div>
   );

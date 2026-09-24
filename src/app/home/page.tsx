@@ -3,7 +3,7 @@ import DashboardFeature  from '@/components/dashboard/dashboard-feature';
 
 export default function HomePage() {
   return (
-    <div>      
+    <div className="flex flex-1 flex-col">
       <DashboardFeature />
     </div>
   );

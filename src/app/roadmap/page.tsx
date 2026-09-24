@@ -3,7 +3,7 @@ import { RoadMapProvider } from '@/components/road-map/road-map-provider';
 
 export default function DonatedPage() {
   return (
-    <div>      
+    <div className="flex flex-1 flex-col">
       <RoadMapProvider />
     </div>
   );

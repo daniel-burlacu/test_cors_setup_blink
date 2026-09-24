@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import emailjs from '@emailjs/browser';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function ContactProvider() {
@@ -19,22 +18,20 @@ export default function ContactProvider() {
     e.preventDefault();
     setIsSending(true);
 
-    console.log('Form data being sent:', formData);
-
     try {
       const response = await fetch('/api/emailjs', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData), // Pass `name`, `email`, `message`
+        body: JSON.stringify(formData),
       });
-  
+
       const data = await response.json();
 
       if (data.success) {
         setSuccessMessage(t.contactUs.successMessage);
-        setFormData({ name: '', email: '', message: '' }); // Reset form
+        setFormData({ name: '', email: '', message: '' });
       } else {
         setSuccessMessage(t.contactUs.errorMessage);
       }
@@ -46,85 +43,85 @@ export default function ContactProvider() {
     }
   };
 
+  const isSuccess = successMessage === t.contactUs.successMessage;
+
   return (
-    <div>
-      <div className="min-h-screen bg-white flex flex-col items-center justify-center py-6 sm:py-10 px-4 sm:px-6 lg:px-12 xl:px-16">
-        <motion.h1
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-800 via-green-600 to-green-700 mb-6 sm:mb-8 text-center"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          {t.contactUs.title}
-        </motion.h1>
+    <div className="bg-gradient-to-r from-green-800 via-green-600 to-green-700 flex flex-1 flex-col items-center py-6 sm:py-10 px-4 sm:px-6">
+      <motion.h1
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 sm:mb-8 text-center"
+        initial={{ opacity: 0, y: -40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+      >
+        {t.contactUs.title}
+      </motion.h1>
 
-        <div className="w-full">
-          <motion.div
-            className="bg-gradient-to-r from-green-800 via-green-600 to-green-700 text-white rounded-lg shadow-lg p-6 sm:p-8 md:p-10 lg:p-12"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
+      <motion.div
+        className="w-full max-w-3xl bg-white rounded-lg shadow-md p-4 sm:p-6 md:p-8"
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+      >
+        <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+          <div className="flex flex-col">
+            <label htmlFor="name" className="font-semibold mb-2 text-sm sm:text-base text-gray-800">
+              {t.contactUs.nameLabel}
+            </label>
+            <input
+              id="name"
+              type="text"
+              placeholder={t.contactUs.namePlaceholder}
+              className="w-full border border-gray-300 rounded-md p-3 sm:p-4 text-sm sm:text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-600"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="email" className="font-semibold mb-2 text-sm sm:text-base text-gray-800">
+              {t.contactUs.emailLabel}
+            </label>
+            <input
+              id="email"
+              type="email"
+              placeholder={t.contactUs.emailPlaceholder}
+              className="w-full border border-gray-300 rounded-md p-3 sm:p-4 text-sm sm:text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-600"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="message" className="font-semibold mb-2 text-sm sm:text-base text-gray-800">
+              {t.contactUs.messageLabel}
+            </label>
+            <textarea
+              id="message"
+              rows={6}
+              placeholder={t.contactUs.messagePlaceholder}
+              className="w-full border border-gray-300 rounded-md p-3 sm:p-4 text-sm sm:text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-600"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-green-700 text-white font-semibold py-3 sm:py-4 rounded-md hover:bg-green-800 transition-colors duration-150 text-sm sm:text-base disabled:opacity-60"
+            disabled={isSending}
           >
-          <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8 w-full">
-            <div className="flex flex-col">
-              <label htmlFor="name" className="font-semibold mb-3 text-base sm:text-lg md:text-xl">
-                {t.contactUs.nameLabel}
-              </label>
-              <input
-                id="name"
-                type="text"
-                placeholder={t.contactUs.namePlaceholder}
-                className="w-full bg-white border border-gray-300 rounded-md p-4 sm:p-5 text-base sm:text-lg text-gray-800"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            <div className="flex flex-col">
-              <label htmlFor="email" className="font-semibold mb-3 text-base sm:text-lg md:text-xl">
-                {t.contactUs.emailLabel}
-              </label>
-              <input
-                id="email"
-                type="email"
-                placeholder={t.contactUs.emailPlaceholder}
-                className="w-full bg-white border border-gray-300 rounded-md p-4 sm:p-5 text-base sm:text-lg text-gray-800"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            <div className="flex flex-col">
-              <label htmlFor="message" className="font-semibold mb-3 text-base sm:text-lg md:text-xl">
-                {t.contactUs.messageLabel}
-              </label>
-              <textarea
-                id="message"
-                rows={8}
-                placeholder={t.contactUs.messagePlaceholder}
-                className="w-full bg-white border border-gray-300 rounded-md p-4 sm:p-5 text-base sm:text-lg text-gray-800"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-white text-green-700 font-semibold py-4 sm:py-5 rounded-md hover:scale-105 transition-all duration-150 text-base sm:text-lg md:text-xl"
-              disabled={isSending}
-            >
-              {isSending ? t.contactUs.sendingButton : t.contactUs.submitButton}
-            </button>
-          </form>
-          {successMessage && (
-            <p className="mt-4 text-center font-medium text-green-500 text-sm sm:text-base">{successMessage}</p>
-          )}
-        </motion.div>
-        </div>
-      </div>
+            {isSending ? t.contactUs.sendingButton : t.contactUs.submitButton}
+          </button>
+        </form>
+        {successMessage && (
+          <p className={`mt-4 text-center font-medium text-sm sm:text-base ${isSuccess ? 'text-green-700' : 'text-red-600'}`}>
+            {successMessage}
+          </p>
+        )}
+      </motion.div>
     </div>
   );
 }

@@ -27,28 +27,11 @@ export const AboutUsProvider: React.FC = () => {
         },
       ],
     },
-    {
-      title: t.aboutUs.documentationTitle,
-      description: t.aboutUs.documentationDescription,
-      icon: '📚',
-      documentation: [
-        {
-          name: t.aboutUs.fullProjectDescription,
-          link: '/documentation/ProjectPlan.pdf',
-          description: t.aboutUs.fullProjectDescriptionText,
-        },
-        {
-          name: t.aboutUs.systemArchitecture,
-          link: '/documentation/SolanaArkFoundationDiagram.drawio',
-          description: t.aboutUs.systemArchitectureText,
-        },
-      ],
-    }
   ];
 
   return (
-    <div>
-      <div className="min-h-screen bg-gradient-to-r from-green-800 via-green-600 to-green-700 flex flex-col items-center justify-center py-6 sm:py-10 px-4 sm:px-6">
+    <div className="flex flex-1 flex-col">
+      <div className="bg-gradient-to-r from-green-800 via-green-600 to-green-700 flex flex-1 flex-col items-center py-6 sm:py-10 px-4 sm:px-6">
         <motion.h1
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 sm:mb-8 text-center"
           initial={{ opacity: 0, y: -50 }}
@@ -87,23 +70,6 @@ export const AboutUsProvider: React.FC = () => {
                           {member.name}
                         </a>
                         <p className="text-sm sm:text-base text-gray-600">{member.description}</p>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                {section.documentation && (
-                  <ul className="mt-4 space-y-2">
-                    {section.documentation.map((doc, idx) => (
-                      <li key={idx}>
-                        <a
-                          href={doc.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-green-500 hover:underline font-semibold"
-                        >
-                          {doc.name}
-                        </a>
-                        <p className="text-gray-600">{doc.description}</p>
                       </li>
                     ))}
                   </ul>

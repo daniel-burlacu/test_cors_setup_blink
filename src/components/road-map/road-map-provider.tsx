@@ -1,80 +1,134 @@
 'use client';
-import { AppHero } from '../ui/ui-layout'
 import { motion } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext';
 
+type PhaseStatus = 'done' | 'current' | 'upcoming';
+
+function phaseStatus(start: string, end: string): PhaseStatus {
+  const now = Date.now();
+  const startMs = new Date(`${start}T00:00:00`).getTime();
+  const endMs = new Date(`${end}T23:59:59`).getTime();
+  if (now > endMs) return 'done';
+  if (now >= startMs) return 'current';
+  return 'upcoming';
+}
+
 export const RoadMapProvider: React.FC = () => {
   const { t } = useLanguage();
-  const roadmapSteps = [
+  const roadmapSteps: {
+    title: string;
+    description: string;
+    icon: string;
+    start: string;
+    end: string;
+  }[] = [
     {
       title: t.roadmap.step1Title,
       description: t.roadmap.step1Description,
-      icon: '🚀',
+      icon: '🧪',
+      start: '2024-07-09',
+      end: '2025-01-12',
     },
     {
       title: t.roadmap.step2Title,
       description: t.roadmap.step2Description,
-      icon: '💰',
+      icon: '💼',
+      start: '2025-01-12',
+      end: '2026-09-30',
     },
     {
       title: t.roadmap.step3Title,
       description: t.roadmap.step3Description,
-      icon: '🏥',
+      icon: '🚀',
+      start: '2026-10-01',
+      end: '2026-12-31',
     },
     {
       title: t.roadmap.step4Title,
       description: t.roadmap.step4Description,
-      icon: '🔗',
+      icon: '🤝',
+      start: '2027-01-01',
+      end: '2027-07-31',
     },
     {
       title: t.roadmap.step5Title,
       description: t.roadmap.step5Description,
-      icon: '🤝',
-    },
-    {
-      title: t.roadmap.step6Title,
-      description: t.roadmap.step6Description,
-      icon: '🎉',
+      icon: '🌐',
+      start: '2027-08-01',
+      end: '2027-12-31',
     },
   ];
+
+  const statusLabel: Record<PhaseStatus, string> = {
+    done: t.roadmap.statusComplete,
+    current: t.roadmap.statusCurrent,
+    upcoming: t.roadmap.statusUpcoming,
+  };
+
   return (
-    <div>
-         <div className="min-h-screen bg-gradient-to-r from-green-800 via-green-600 to-green-700 flex flex-col items-center justify-center py-6 sm:py-10 px-4 sm:px-6">
+    <div className="bg-gradient-to-b from-green-900 via-emerald-800 to-green-950 flex flex-1 flex-col items-center py-6 sm:py-10 px-4 sm:px-6">
       <motion.h1
-        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 sm:mb-8 text-center"
-        initial={{ opacity: 0, y: -50 }}
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 text-center"
+        initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.7 }}
       >
         {t.roadmap.title}
       </motion.h1>
+      <motion.p
+        className="text-emerald-50/90 text-sm sm:text-base md:text-lg max-w-3xl text-center mb-8 sm:mb-10 leading-relaxed"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.7, delay: 0.15 }}
+      >
+        {t.roadmap.intro}
+      </motion.p>
 
-      <div className="w-full max-w-4xl px-2 sm:px-4">
-        {roadmapSteps.map((step, index) => (
-          <motion.div
-            key={index}
-            className="bg-white rounded-lg shadow-md p-4 sm:p-6 mb-4 sm:mb-6 flex flex-col sm:flex-row items-start space-y-3 sm:space-y-0 sm:space-x-4 relative"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: index * 0.2 }}
-          >
-            {index === 0 && (
-              <div className="absolute top-2 right-2 text-green-600 font-bold text-sm sm:text-base border-2 border-green-600 px-2 py-1 rounded-full transform rotate-12">
-                ✓ DONE
+      <div className="w-full max-w-4xl px-1 sm:px-4 relative">
+        <div className="hidden sm:block absolute left-8 top-6 bottom-6 w-px bg-emerald-200/50" aria-hidden="true" />
+        {roadmapSteps.map((step, index) => {
+          const status = phaseStatus(step.start, step.end);
+          return (
+            <motion.div
+              key={step.title}
+              className="relative bg-white rounded-xl shadow-md p-4 sm:p-6 mb-4 sm:mb-6 sm:ml-10"
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.55, delay: index * 0.08 }}
+            >
+              <span className="hidden sm:flex absolute -left-10 top-6 h-7 w-7 items-center justify-center rounded-full bg-emerald-600 text-white text-xs font-bold ring-4 ring-emerald-900">
+                {index + 1}
+              </span>
+              <div className="flex flex-col sm:flex-row items-start gap-3">
+                <div className="text-3xl" aria-hidden="true">{step.icon}</div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
+                    <span className="sm:hidden text-xs font-bold text-emerald-700">
+                      {index + 1}
+                    </span>
+                    <span
+                      className={`text-xs font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full ${
+                        status === 'done'
+                          ? 'bg-emerald-100 text-emerald-800'
+                          : status === 'current'
+                            ? 'bg-amber-100 text-amber-800'
+                            : 'bg-slate-100 text-slate-600'
+                      }`}
+                    >
+                      {statusLabel[status]}
+                    </span>
+                  </div>
+                  <h2 className="text-lg sm:text-2xl font-semibold text-gray-800 mb-2">
+                    {step.title}
+                  </h2>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{step.description}</p>
+                </div>
               </div>
-            )}
-            <div className="text-3xl sm:text-4xl">{step.icon}</div>
-            <div className="flex-1">
-              <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-2">
-                {step.title}
-              </h2>
-              <p className="text-sm sm:text-base text-gray-600 whitespace-pre-line">{step.description}</p>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          );
+        })}
       </div>
-    </div>
     </div>
   );
 };

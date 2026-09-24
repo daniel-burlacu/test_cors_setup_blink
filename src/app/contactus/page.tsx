@@ -3,7 +3,7 @@ import  ContactProvider  from '@/components/contactus/contact-provider';
 
 export default function ContactPage() {
   return (
-    <div>      
+    <div className="flex flex-1 flex-col">
       <ContactProvider />
     </div>
   );

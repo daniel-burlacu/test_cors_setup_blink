@@ -1,8 +1,6 @@
 'use client'
 import * as React from 'react'
 import {ReactNode, Suspense, useEffect, useRef} from 'react'
-import toast, {Toaster} from 'react-hot-toast'
-import { ExplorerLink} from '../cluster/cluster-ui'
 import { TabMenu } from '@/components/ui/tab-menu';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -14,18 +12,17 @@ export function UiLayout({ children }: { children: ReactNode }) {
     { label: t.nav.project, path: '/project' },
     { label: t.nav.roadmap, path: '/roadmap' },
     { label: t.nav.aboutUs, path: '/aboutus' },
-    { label: t.nav.architecture, path: '/architecture' },
     { label: t.nav.applicationDemo, path: '/application' },
     { label: t.nav.contactUs, path: '/contactus' },
   ];
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white">
       {/* Fixed TabMenu */}
       <TabMenu links={links} />
 
       {/* Content Below Fixed Menu */}
-      <div className="mt-20 flex-grow mx-4 lg:mx-auto">
+      <div className="w-full flex-1 flex flex-col">
         {/* Add margin-top to prevent overlap with the fixed menu */}
         <Suspense
           fallback={
@@ -36,10 +33,9 @@ export function UiLayout({ children }: { children: ReactNode }) {
         >
           {children}
         </Suspense>
-        <Toaster position="bottom-right" />
       </div>
 
-      <footer className="footer footer-center p-4 bg-base-300 text-base-content">
+      <footer className="footer footer-center mt-auto p-4 bg-gradient-to-r from-green-900 via-green-800 to-green-700 text-white">
         <aside>
           <p>
             @2025 Created by{' '}
@@ -130,20 +126,3 @@ export function AppHero({
   )
 }
 
-export function ellipsify(str = '', len = 4) {
-  if (str.length > 30) {
-    return str.substring(0, len) + '..' + str.substring(str.length - len, str.length)
-  }
-  return str
-}
-
-export function useTransactionToast() {
-  return (signature: string) => {
-    toast.success(
-      <div className={'text-center'}>
-        <div className="text-lg">Transaction sent</div>
-        <ExplorerLink path={`tx/${signature}`} label={'View Transaction'} className="btn btn-xs btn-primary" />
-      </div>,
-    )
-  }
-}

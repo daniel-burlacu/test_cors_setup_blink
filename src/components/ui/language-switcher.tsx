@@ -51,7 +51,7 @@ export function LanguageSwitcher() {
                     }}
                     className={`w-full text-left px-3 py-2 rounded-md transition-colors flex items-center gap-2 ${
                       language === lang.code
-                        ? 'bg-blue-500 text-white'
+                        ? 'bg-green-700 text-white'
                         : 'hover:bg-gray-100 text-gray-900'
                     }`}
                     title={lang.name}
@@ -107,7 +107,7 @@ export function LanguageSwitcherMobile() {
                     }}
                     className={`w-full text-left px-2 py-1 rounded-md transition-colors flex items-center gap-1 text-sm ${
                       language === lang.code
-                        ? 'bg-blue-500 text-white'
+                        ? 'bg-green-700 text-white'
                         : 'hover:bg-gray-100 text-gray-900'
                     }`}
                     title={lang.name}
